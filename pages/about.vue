@@ -1,8 +1,13 @@
 <template>
   <section class="mx-auto max-w-screen-xl">
-    <va-alert>
-    You read this important slotted alert message.
-  </va-alert>
+    <Button label="Submit" icon="pi pi-check" class="p-button-sm" />
+    <Button label="Primary" />
+<Button label="Secondary" class="p-button-secondary" />
+<Button label="Success" class="p-button-success" />
+<Button label="Info" class="p-button-info" />
+<Button label="Warning" class="p-button-warning" />
+<Button label="Warning" class="p-button-help" />
+<Button label="Danger" class="p-button-danger" />
     <h1 class="text-green-500">{{ message }}</h1>
     <p>This page will be displayed at the /about route.</p>
     <div

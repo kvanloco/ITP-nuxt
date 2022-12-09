@@ -412,7 +412,7 @@
   "resolved" "https://registry.npmjs.org/@nuxt/devalue/-/devalue-2.0.0.tgz"
   "version" "2.0.0"
 
-"@nuxt/kit@^3.0.0", "@nuxt/kit@^3.0.0-rc.12", "@nuxt/kit@^3.0.0-rc.14", "@nuxt/kit@^3.0.0-rc.9", "@nuxt/kit@3.0.0":
+"@nuxt/kit@^3.0.0", "@nuxt/kit@^3.0.0-rc.12", "@nuxt/kit@^3.0.0-rc.14", "@nuxt/kit@3.0.0":
   "integrity" "sha512-7ZsOLt5s9a0ZleAIzmoD70JwkZf5ti6bDdxl6f8ew7Huxz+ni/oRfTPTX9TrORXsgW5CvDt6Q9M7IJNPkAN/Iw=="
   "resolved" "https://registry.npmjs.org/@nuxt/kit/-/kit-3.0.0.tgz"
   "version" "3.0.0"
@@ -558,6 +558,11 @@
     "tailwindcss" "^3.2.0"
     "ufo" "^0.8.6"
 
+"@popperjs/core@^2.9.3":
+  "integrity" "sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw=="
+  "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz"
+  "version" "2.11.6"
+
 "@rollup/plugin-alias@^4.0.2":
   "integrity" "sha512-1hv7dBOZZwo3SEupxn4UA2N0EDThqSSS+wI1St1TNTBtOZvUchyIClyHcnDcjjrReTPZ47Faedrhblv4n+T5UQ=="
   "resolved" "https://registry.npmjs.org/@rollup/plugin-alias/-/plugin-alias-4.0.2.tgz"
@@ -670,11 +675,6 @@
   "integrity" "sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ=="
   "resolved" "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.11.tgz"
   "version" "7.0.11"
-
-"@types/lodash@^4.14.161":
-  "integrity" "sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ=="
-  "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.191.tgz"
-  "version" "4.14.191"
 
 "@types/node@*", "@types/node@>= 14":
   "integrity" "sha512-KJ021B1nlQUBLopzZmPBVuGU9un7WJd/W4ya7Ih02B4Uwky5Nja0yGYav2EfYIk0RR2Q9oVhf60S2XR1BCWJ2g=="
@@ -866,16 +866,6 @@
   "integrity" "sha512-Ewzq5Yhimg7pSztDV+RH1UDKBzmtqieXQlpTVm2AwraoRL/Rks96mvd8Vgi7Lj+h+TH8dv7mXD3FRZR3TUvbSg=="
   "resolved" "https://registry.npmjs.org/@vue/shared/-/shared-3.2.45.tgz"
   "version" "3.2.45"
-
-"@vuestic/nuxt@^1.0.9":
-  "integrity" "sha512-XuQ8Yk7lvMcjox+rZAsIAQ4Io7akl0TfzyQXmehtIgPg4SeF27Kz6VSFOQPvW6K8CIcq8IlrBOSw5HI421dqqw=="
-  "resolved" "https://registry.npmjs.org/@vuestic/nuxt/-/nuxt-1.0.9.tgz"
-  "version" "1.0.9"
-  dependencies:
-    "@nuxt/kit" "^3.0.0-rc.9"
-    "nuxt" "^3.0.0-rc.9"
-    "pathe" "^0.3.5"
-    "vuestic-ui" "^1.4.10"
 
 "@vueuse/head@^1.0.15":
   "integrity" "sha512-YmUdbzNdCnhmrAFxGnJS+Rixj+swE+TQC9OEaYDHIro6gE7W11jugcdwVP00HrA4WRQhg+TOQ4YcY2oL/PP1hw=="
@@ -1476,11 +1466,6 @@
     "parent-module" "^2.0.0"
     "resolve-from" "^5.0.0"
 
-"cleave.js@^1.6.0":
-  "integrity" "sha512-ivqesy3j5hQVG3gywPfwKPbi/7ZSftY/UNp5uphnqjr25yI2CP8FS2ODQPzuLXXnNLi29e2+PgPkkiKUXLs/Nw=="
-  "resolved" "https://registry.npmjs.org/cleave.js/-/cleave.js-1.6.0.tgz"
-  "version" "1.6.0"
-
 "cli-cursor@^4.0.0":
   "integrity" "sha512-VGtlMu3x/4DOtIUwEkRezxUZ2lBacNJCHash0N0WeZDBS+7Ux1dm3XWAgWYxLJFMMdOeXMHXorshEFhbMSGelg=="
   "resolved" "https://registry.npmjs.org/cli-cursor/-/cli-cursor-4.0.0.tgz"
@@ -1569,11 +1554,6 @@
   "integrity" "sha512-3tlv/dIP7FWvj3BsbHrGLJ6l/oKh1O3TcgBqMn+yyCagOxc23fyzDS6HypQbgxWbkpDnf52p1LuR4eWDQ/K9WQ=="
   "resolved" "https://registry.npmjs.org/colorette/-/colorette-2.0.19.tgz"
   "version" "2.0.19"
-
-"colortranslator@^1.9.2":
-  "integrity" "sha512-51O07JAa8J0uIZT08FOGirqRBK9DVG0luuTNjYk9FdawE4tFc3yp7jQhRkZQsUDRwCnKa4CwMRuJIiaSeXsGvg=="
-  "resolved" "https://registry.npmjs.org/colortranslator/-/colortranslator-1.9.3.tgz"
-  "version" "1.9.3"
 
 "commander@^2.20.0":
   "integrity" "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ=="
@@ -2287,6 +2267,14 @@
   "integrity" "sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ=="
   "resolved" "https://registry.npmjs.org/flat/-/flat-5.0.2.tgz"
   "version" "5.0.2"
+
+"flowbite@^1.5.5":
+  "integrity" "sha512-LWJteH6zO+6BrnerH6GEU9OFpjWmkCWi9BD3XnJdBOVevNnt7u8gW+S+4keqD5OGpHu+QU860pLzNKeNlhlf6g=="
+  "resolved" "https://registry.npmjs.org/flowbite/-/flowbite-1.5.5.tgz"
+  "version" "1.5.5"
+  dependencies:
+    "@popperjs/core" "^2.9.3"
+    "mini-svg-data-uri" "^1.4.3"
 
 "follow-redirects@^1.0.0":
   "integrity" "sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA=="
@@ -3275,6 +3263,11 @@
   "resolved" "https://registry.npmjs.org/mimic-fn/-/mimic-fn-2.1.0.tgz"
   "version" "2.1.0"
 
+"mini-svg-data-uri@^1.4.3":
+  "integrity" "sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg=="
+  "resolved" "https://registry.npmjs.org/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz"
+  "version" "1.4.4"
+
 "minimatch@^3.0.4":
   "integrity" "sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw=="
   "resolved" "https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz"
@@ -3566,7 +3559,7 @@
     "@iconify/vue" "^4.0.1"
     "@nuxt/kit" "^3.0.0"
 
-"nuxt@^3.0.0-rc.9", "nuxt@3.0.0":
+"nuxt@3.0.0":
   "integrity" "sha512-RNlD78uv04ZiXWmlx9f1tnJfrqsYAWHU+4gbgOTQpIBmQzHWPWiox+fm/1m93iKfEd5sJi9TJUoXX5yBObVZYw=="
   "resolved" "https://registry.npmjs.org/nuxt/-/nuxt-3.0.0.tgz"
   "version" "3.0.0"
@@ -3793,11 +3786,6 @@
   "integrity" "sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw=="
   "resolved" "https://registry.npmjs.org/pathe/-/pathe-0.2.0.tgz"
   "version" "0.2.0"
-
-"pathe@^0.3.5":
-  "integrity" "sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g=="
-  "resolved" "https://registry.npmjs.org/pathe/-/pathe-0.3.9.tgz"
-  "version" "0.3.9"
 
 "pathe@^1.0.0":
   "integrity" "sha512-nPdMG0Pd09HuSsr7QOKUXO2Jr9eqaDiZvDwdyIhNG5SHYujkQHYKDfGQkulBxvbDHz8oHLsTgKN86LSwYzSHAg=="
@@ -5180,7 +5168,7 @@
   dependencies:
     "@vue/devtools-api" "^6.4.5"
 
-"vue@^3.0.0", "vue@^3.0.4", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.45", "vue@>=2.7 || >=3", "vue@>=3", "vue@3.2.45":
+"vue@^3.0.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.45", "vue@>=2.7 || >=3", "vue@>=3", "vue@3.2.45":
   "integrity" "sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.45.tgz"
   "version" "3.2.45"
@@ -5190,16 +5178,6 @@
     "@vue/runtime-dom" "3.2.45"
     "@vue/server-renderer" "3.2.45"
     "@vue/shared" "3.2.45"
-
-"vuestic-ui@^1.4.10":
-  "integrity" "sha512-96lyVnIh04EjDRyvFYHqpnDSP9UPwFX43JtobSs1ju95S3f3vKBrXz8gugpIpQeKVM3U++MUbBaiOBjDBwQgWg=="
-  "resolved" "https://registry.npmjs.org/vuestic-ui/-/vuestic-ui-1.5.2.tgz"
-  "version" "1.5.2"
-  dependencies:
-    "@types/lodash" "^4.14.161"
-    "cleave.js" "^1.6.0"
-    "colortranslator" "^1.9.2"
-    "lodash" "^4.17.21"
 
 "watchpack@^2.4.0":
   "integrity" "sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg=="
