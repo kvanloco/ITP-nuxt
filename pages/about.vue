@@ -1,5 +1,8 @@
 <template>
   <section class="mx-auto max-w-screen-xl">
+    <va-alert>
+    You read this important slotted alert message.
+  </va-alert>
     <h1 class="text-green-500">{{ message }}</h1>
     <p>This page will be displayed at the /about route.</p>
     <div
