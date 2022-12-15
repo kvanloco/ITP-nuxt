@@ -2,13 +2,13 @@
 const namingFields = ref([
   {
     title: 'Fieldname 1',
-    subtitle: 'subtitle',
+    subTitle: 'subtitle',
     errorMessage: 'errrorMessage',
   },
   {
-    title: 'Fieldname 1',
-    subtitle: 'subtitle',
-    errorMessage: 'errrorMessage',
+    title: 'Fieldname 2',
+    subTitle: 'subtitle 2',
+    errorMessage: '',
   },
 ]);
 </script>
@@ -16,8 +16,6 @@ const namingFields = ref([
 <template>
   <div class="">
     <div class="h-screen flex flex-row flex-wrap text-sm">
-      <Sidenav />
-
       <div class="flex-1 p-6">
         <div class="">
           <div class="pb-3 border-top">
@@ -25,7 +23,10 @@ const namingFields = ref([
             <p class="">Lorem ipsum dolar sit</p>
           </div>
           <div class="justify-evenly flex px-2 gap-2 py-5">
-            <NamingField />
+            <div v-for="field in namingFields">
+              <NamingField v-bind="field" />
+            </div>
+
             <div
               class="
                 bg-orange-50
