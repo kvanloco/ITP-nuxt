@@ -1,14 +1,23 @@
+<script setup>
+const namingFields = ref([
+  {
+    title: 'Fieldname 1',
+    subtitle: 'subtitle',
+    errorMessage: 'errrorMessage',
+  },
+  {
+    title: 'Fieldname 1',
+    subtitle: 'subtitle',
+    errorMessage: 'errrorMessage',
+  },
+]);
+</script>
+
 <template>
   <div class="">
     <div class="h-screen flex flex-row flex-wrap text-sm">
-      <div class="flex top-0 h-screen flex-col flex-wrap p-2 w-56 border-r">
-        <h6 class="not-italic py-3">Enter your heading</h6>
-        <ul class="list-disc list-inside">
-          <li class="flex items-center gap-x-3 xl:">List item 1</li>
-          <li class="flex items-center gap-x-3">List item 2</li>
-          <li class="flex items-center gap-x-3">List item 3</li>
-        </ul>
-      </div>
+      <Sidenav />
+
       <div class="flex-1 p-6">
         <div class="">
           <div class="pb-3 border-top">
@@ -16,6 +25,7 @@
             <p class="">Lorem ipsum dolar sit</p>
           </div>
           <div class="justify-evenly flex px-2 gap-2 py-5">
+            <NamingField />
             <div
               class="
                 bg-orange-50
