@@ -2,26 +2,7 @@
 
  <div class="">
 
-    <div class="justify-between flex top-0 p-2 xl:bg-gray-100 xl:">
-      <div class="flex items-center"><a class="inline-flex items-center mr-8" href="#"><span class="text-2xl">
-            <div class=""><span class=""><svg class="" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"></path>
-                </svg></span></div>
-          </span><span class="ml-2 text-xl font-bold tracking-wide uppercase">chai.</span></a>
-        <ul class="flex items-center hidden space-x-8">
-          <li class=""><a class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400" href="#">Product</a></li>
-          <li class=""><a class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400" href="#">Features</a></li>
-          <li class=""><a class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400" href="#">Pricing</a></li>
-          <li class=""><a class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400" href="#">About us</a></li>
-        </ul>
-      </div>
-      <div class="flex items-center xl:">
-        <ul class="flex items-center hidden space-x-8">
-          <li class=""><a class="font-medium tracking-wide transition-colors duration-200 hover:text-primary" href="#">Sign in</a></li>
-          <li class=""><a class="inline-flex items-center justify-center font-medium tracking-wide transition duration-200 shadow-md focus:shadow-outline focus:outline-none bg-primary-500 rounded-global px-2 xl:bg-primary-300" href="#">Sign up</a></li>
-        </ul>
-      </div>
-    </div>
+
     <div class="h-screen flex flex-row flex-wrap text-sm">
       <div class="flex top-0 h-screen flex-col flex-wrap p-2 w-56 border-r">
         <h6 class="not-italic py-3">Enter your heading</h6>
