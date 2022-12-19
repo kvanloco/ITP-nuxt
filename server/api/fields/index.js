@@ -8,10 +8,12 @@ export default defineEventHandler(async () => {
     {
       title: 'Fieldname 1',
       subTitle: 'subtitle',
+      initialInputValue: 'boe',
     },
     {
       title: 'Fieldname 2',
       subTitle: 'subtitle 2',
+      initialInputValue: '',
     },
   ];
 

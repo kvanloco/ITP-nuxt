@@ -12,13 +12,28 @@ emit
 - inputField
 */
 
-defineProps({
+const props = defineProps({
   title: String,
   subTitle: String,
+  initialInputValue: String,
 });
 
-const input = ref('');
+const input = ref(props.initialInputValue);
 const errorMessage = ref('');
+
+const capitilize = ref(true);
+
+const output = computed(() => {
+  let result = input.value;
+  console.log('Result raw: ' + result);
+  // CAPITILIZE
+  if (capitilize) {
+    console.log('into if statement : ' + capitilize.value);
+    result = result.toUpperCase();
+  }
+  console.log('Result 2: ' + result);
+  return result;
+});
 
 // Input validation
 watch(input, (newInput, prevInput) => {
@@ -43,11 +58,18 @@ watch(input, (newInput, prevInput) => {
   >
     <div class="flex gap-x-[2px] flex-col min-h-[40px]">
       <p class="">{{ title }}</p>
+      {{ output }}
       <span class="text-xs text-blue-300">{{ subTitle }}</span>
     </div>
     <input class="p-1 border border-gray-200 text-sm" v-model="input" />
     <div class="flex gap-x-[2px] flex-col min-h-[25px] xl:">
       <span class="text-xs text-red-300">{{ errorMessage }}</span>
     </div>
+    <input
+      type="checkbox"
+      v-model="capitilize"
+      true-value="true"
+      false-value="false"
+    />{{ capitilize }}
   </div>
 </template>
