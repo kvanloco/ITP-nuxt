@@ -15,10 +15,18 @@ emit
 defineProps({
   title: String,
   subTitle: String,
-  errorMessage: String,
 });
 
 const input = ref('');
+const errorMessage = ref('');
+
+watch(input, (input, prevInput) => {
+  if (input < 5) {
+    errorMessage.value = 'You need min 5 caracters';
+  } else {
+    errorMessage.value = '';
+  }
+});
 </script>
 
 <template>
