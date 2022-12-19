@@ -17,6 +17,8 @@ defineProps({
   subTitle: String,
   errorMessage: String,
 });
+
+const input = ref('');
 </script>
 
 <template>
@@ -34,7 +36,9 @@ defineProps({
       <p class="">{{ title }}</p>
       <span class="text-xs text-blue-300">{{ subTitle }}</span>
     </div>
-    <input class="p-1 border border-gray-200 text-sm" />
+    <input class="p-1 border border-gray-200 text-sm" v-model="input" />{{
+      input
+    }}
     <div class="flex gap-x-[2px] flex-col min-h-[25px] xl:">
       <span class="text-xs text-red-300">{{ errorMessage }}</span>
     </div>

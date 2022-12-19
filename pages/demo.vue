@@ -1,16 +1,10 @@
 <script setup>
-const namingFields = ref([
-  {
-    title: 'Fieldname 1',
-    subTitle: 'subtitle',
-    errorMessage: 'errrorMessage',
-  },
-  {
-    title: 'Fieldname 2',
-    subTitle: 'subtitle 2',
-    errorMessage: '',
-  },
-]);
+const {
+  data: namingFields,
+  pending,
+  refresh,
+  error,
+} = await useFetch('/api/fields');
 </script>
 
 <template>
@@ -21,8 +15,10 @@ const namingFields = ref([
           <div class="pb-3 border-top">
             <h6 class="font-semibold text-xl">your template</h6>
             <p class="">Lorem ipsum dolar sit</p>
+            <p v-if="error" class="bg-red-300">{{ error }}</p>
           </div>
-          <div class="justify-evenly flex px-2 gap-2 py-5">
+          <div v-if="pending"></div>
+          <div v-else class="justify-evenly flex px-2 gap-2 py-5">
             <div v-for="field in namingFields">
               <NamingField v-bind="field" />
             </div>
