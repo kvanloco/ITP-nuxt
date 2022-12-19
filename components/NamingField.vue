@@ -20,8 +20,9 @@ defineProps({
 const input = ref('');
 const errorMessage = ref('');
 
-watch(input, (input, prevInput) => {
-  if (input < 5) {
+// Input validation
+watch(input, (newInput, prevInput) => {
+  if (input.value.length < 5) {
     errorMessage.value = 'You need min 5 caracters';
   } else {
     errorMessage.value = '';
@@ -44,9 +45,7 @@ watch(input, (input, prevInput) => {
       <p class="">{{ title }}</p>
       <span class="text-xs text-blue-300">{{ subTitle }}</span>
     </div>
-    <input class="p-1 border border-gray-200 text-sm" v-model="input" />{{
-      input
-    }}
+    <input class="p-1 border border-gray-200 text-sm" v-model="input" />
     <div class="flex gap-x-[2px] flex-col min-h-[25px] xl:">
       <span class="text-xs text-red-300">{{ errorMessage }}</span>
     </div>
