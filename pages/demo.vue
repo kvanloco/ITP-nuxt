@@ -6,6 +6,13 @@ const {
   error,
 } = await useFetch('/api/fields');
 
+const {
+  data: templatesData,
+  pending,
+  refresh,
+  error,
+} = await useFetch('/api/templates');
+
 const maxLength = 20;
 const hyphen = '_';
 const outputArray = ref([]);
@@ -208,8 +215,11 @@ const onClickCopy = (value) => {
             </div>
           </div>
         </div>
-        <div class="flex gap-2 py-5">
-          <TemplateItem />
+        <!-- Template List -->
+        <div class="flex gap-2 py-5" v-for="(template, index) in templatesData">
+          <!-- Template List Item-->
+          <TemplateItem v-bind="template" :index="index" />
+
           <div class="border-[1px]">
             <div class="flex items-center justify-between p-2">
               <div class="flex items-center gap-[5px]">
