@@ -9,11 +9,52 @@ export default defineEventHandler(async () => {
       title: 'Fieldname 1',
       subTitle: 'subtitle',
       initialInputValue: 'boe',
+      slug: 'projectref',
+      type: 'text',
+      // validation via watch
+      required: true,
+      minlength: 5,
+      maxlength: 10,
+      unique: false,
+      // format output
+      prefix: '',
+      postfix: '-ax',
+      space: '-',
+      capitalize: false,
     },
     {
       title: 'Fieldname 2',
-      subTitle: 'subtitle 2',
-      initialInputValue: '',
+      subTitle: 'subtitle',
+      initialInputValue: 'kieke boe',
+      slug: 'projectref',
+      type: 'text',
+      // validation via watch
+      required: true,
+      minlength: 5,
+      maxlength: 10,
+      unique: false,
+      // format output
+      prefix: '',
+      postfix: '-ax',
+      space: '-',
+      capitalize: false,
+    },
+    {
+      title: 'Fieldname 2',
+      subTitle: 'subtitle',
+      initialInputValue: 'kieke boe 2',
+      slug: 'projectref',
+      type: 'text',
+      // validation via watch
+      required: true,
+      minlength: 5,
+      maxlength: 10,
+      unique: false,
+      // format output
+      prefix: '',
+      postfix: '-ax',
+      space: '-',
+      capitalize: false,
     },
   ];
 

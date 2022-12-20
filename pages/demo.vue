@@ -5,6 +5,19 @@ const {
   refresh,
   error,
 } = await useFetch('/api/fields');
+
+const outputArray = ref([]);
+
+const resultString = computed(() => {
+  return outputArray.reduce((acc, curr) => {
+    acc + curr;
+  });
+});
+// from child field components
+const onOutput = (n, index) => {
+  //console.log('Output at parent level:  ' + n + ' - ' + index);
+  outputString.value.splice(index, 1, n);
+};
 </script>
 
 <template>
@@ -15,87 +28,15 @@ const {
           <div class="pb-3 border-top">
             <h6 class="font-semibold text-xl">your template</h6>
             <p class="">Lorem ipsum dolar sit</p>
+            <p class="">{{ outputString }}</p>
+            <p class="">{{ resultString }}</p>
+
             <p v-if="error" class="bg-red-300">{{ error }}</p>
           </div>
           <div v-if="pending"></div>
           <div v-else class="justify-evenly flex px-2 gap-2 py-5">
-            <div v-for="field in namingFields">
-              <NamingField v-bind="field" />
-            </div>
-
-            <div
-              class="
-                bg-orange-50
-                border-gray-500
-                p-2
-                my-1
-                hover:border-amber-400
-                border-t border-b
-              "
-            >
-              <div class="flex gap-x-[2px] flex-col min-h-[40px]">
-                <p class="">Fieldname Fieldname Fieldname Fieldname</p>
-                <span class="text-xs text-blue-300">Lorem ipsum dolar sit</span>
-              </div>
-              <input class="p-1 border border-gray-200 text-sm" />
-              <div class="flex gap-x-[2px] flex-col min-h-[25px] xl:">
-                <span class="text-xs text-red-300">Lorem ipsum dolar sit</span>
-              </div>
-            </div>
-            <div
-              class="
-                border-gray-500
-                p-2
-                my-1
-                hover:border-amber-400
-                border-t border-b
-              "
-            >
-              <div class="flex gap-x-[2px] flex-col min-h-[40px]">
-                <p class="">Fieldname</p>
-              </div>
-              <input class="p-1 border border-gray-200 text-sm" />
-              <div class="flex gap-x-[2px] flex-col xl:">
-                <span class="text-xs text-red-300">Lorem ipsum dolar sit</span>
-              </div>
-            </div>
-            <div
-              class="
-                bg-orange-50
-                border-gray-500
-                p-2
-                my-1
-                hover:border-amber-400
-                border-t border-b
-              "
-            >
-              <div class="flex gap-x-[2px] flex-col min-h-[40px]">
-                <p class="">Fieldname Fieldname Fieldname Fieldname</p>
-                <span class="hidden text-xs text-blue-300"
-                  >Lorem ipsum dolar sit</span
-                >
-              </div>
-              <input class="p-1 border border-gray-200 text-sm" />
-              <div class="gap-x-[2px] flex-col min-h-[25px] shadow- hidden">
-                <span class="text-xs text-red-300">Lorem ipsum dolar sit</span>
-              </div>
-            </div>
-            <div
-              class="
-                border-gray-500
-                p-2
-                my-1
-                hover:border-amber-400
-                border-t border-b
-              "
-            >
-              <div class="flex gap-x-[2px] flex-col min-h-[40px]">
-                <p class="">Fieldname</p>
-              </div>
-              <input class="p-1 border border-gray-200 text-sm" />
-              <div class="flex gap-x-[2px] flex-col xl:">
-                <span class="text-xs text-red-300">Lorem ipsum dolar sit</span>
-              </div>
+            <div v-for="(field, index) in namingFields">
+              <NamingField v-bind="field" :index="index" @output="onOutput" />
             </div>
           </div>
           <div class="flex px-2 gap-2 justify-center py-5">
