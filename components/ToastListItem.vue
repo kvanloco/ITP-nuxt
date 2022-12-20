@@ -2,13 +2,18 @@
 const props = defineProps({
   toastText: String,
 });
+const emit = defineEmits(['close']);
+
+const closeToast = () => {
+  emit('close');
+};
 </script>
 
 <template>
   <div
     id="toast-default"
     class="
-      absolute
+      fixed
       top-5
       right-5
       flex
@@ -17,7 +22,7 @@ const props = defineProps({
       w-full
       max-w-xs
       text-gray-500
-      bg-white
+      bg-red-100
       rounded-lg
       shadow
       dark:text-gray-400 dark:bg-gray-800
@@ -55,6 +60,7 @@ const props = defineProps({
     </div>
     <div class="ml-3 text-sm font-normal">{{ toastText }}</div>
     <button
+      @click="closeToast"
       type="button"
       class="
         ml-auto

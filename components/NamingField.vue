@@ -23,7 +23,6 @@ const props = defineProps({
 
 const emit = defineEmits(['output']);
 
-
 const input = ref(props.initialInputValue);
 const errorMessage = ref('');
 const hasErrors = computed(() => {
@@ -115,8 +114,7 @@ watch(output, (newOutput, prevOutput) => {
     "
   >
     <div class="flex gap-x-[2px] flex-col min-h-[40px]">
-      <p class="">{{ title }} - {{ props.type }}</p>
-      {{ output }}
+      <p class="">{{ title }}</p>
       <span class="text-xs text-blue-300">{{ subTitle }}</span>
     </div>
     <input

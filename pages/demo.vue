@@ -11,7 +11,6 @@ const hyphen = '_';
 const outputArray = ref([]);
 const errorMessage = ref('');
 const errorFromChild = ref('');
-const toastVisible = ref(false);
 
 const { text, copy, copied, isSupported } = useClipboard();
 
@@ -46,10 +45,19 @@ const onOutput = (n, index, hasErrors) => {
   }
 };
 
+/*
+ * *********  Toast
+ */
+const toastShow = ref(false);
+
 const openToast = () => {
-  toastVisible.value = true;
-  const timeOut = setTimeout(() => (toastVisible.value = false), 5000);
+  toastShow.value = true;
+  const timeOut = setTimeout(() => (toastShow.value = false), 4000);
   //clearTimeout(timeOut);
+};
+
+const closeToast = () => {
+  toastShow.value = false;
 };
 
 const onClickCopy = (value) => {
@@ -59,15 +67,13 @@ const onClickCopy = (value) => {
 </script>
 
 <template>
-  <div class="">
+  <div class="container mx-auto">
     <div class="h-screen flex flex-row flex-wrap text-sm">
       <div class="flex-1 p-6">
         <div class="">
           <div class="pb-3 border-top">
-            <h6 class="font-semibold text-xl">your template</h6>
+            <h6 class="font-semibold text-xl">your template name</h6>
             <p class="">Lorem ipsum dolar sit</p>
-            <p class="">{{ outputArray }}</p>
-            <p class="">{{ resultString }}</p>
 
             <p v-if="error" class="bg-red-300">{{ error }}</p>
           </div>
@@ -203,92 +209,7 @@ const onClickCopy = (value) => {
           </div>
         </div>
         <div class="flex gap-2 py-5">
-          <div class="border-[1px]">
-            <div class="flex items-center justify-between p-2 xl:items-start">
-              <div class="flex-col flex items-center gap-[5px] xl:items-start">
-                <h3 class="text-3xl font-semibold xl:text-[20px]">
-                  Template name
-                </h3>
-                <div class="flex gap-x-[10px]">
-                  <p class="text-blue-500">Categorie 1</p>
-                  <p class="text-blue-500">Teamname</p>
-                </div>
-              </div>
-              <div
-                class="max-w-[250px] flex items-center gap-[5px] xl:items-start"
-              >
-                <p class="">Lorem ipsum dolar sit qdfqsdfdsfqsdf sqdfqsdf</p>
-                <button
-                  id="tyinnD"
-                  class="
-                    min-w-[130px]
-                    p-[1px]
-                    max-w-[250px]
-                    bg-primary
-                    text-white
-                    py-2
-                    rounded-global
-                    px-2
-                  "
-                >
-                  Use this template
-                </button>
-              </div>
-            </div>
-            <div class="p-2">
-              <p class="text-[1.5em]">Description</p>
-              <p class="">
-                Lorem Ipsum is slechts een proeftekst uit het drukkerij- en
-                zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze
-                bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een
-                zethaak met letters nam en ze door elkaar husselde om een
-                font-catalogus te maken. Het heeft niet alleen vijf eeuwen
-                overleefd maar is ook, vrijwel onveranderd, overgenomen in
-                elektronische letterzetting. Het is in de jaren &amp;#x27;60
-                populair geworden met de introductie van Letraset vellen met
-                Lorem Ipsum passages en meer recentelijk door desktop publishing
-                software zoals Aldus PageMaker die versies van Lorem Ipsum
-                bevatten.
-              </p>
-            </div>
-            <div class="p-2">
-              <p class="text-[1.5em]">Examples</p>
-              <ul class="list-disc list-inside">
-                <li class="flex items-center gap-x-3">
-                  001_Lorem-ipsum_001_v45
-                </li>
-                <li class="flex items-center gap-x-3">
-                  001_Lorem-ipsum_001_v45
-                </li>
-                <li class="flex items-center gap-x-3">
-                  001_Lorem-ipsum_001_v45
-                </li>
-              </ul>
-            </div>
-            <div class="flex items-center gap-[5px] p-2">
-              <span class="w-10 h-10">
-                <div class="">
-                  <span class="text-[24px]"
-                    ><svg
-                      class="text-[24px]"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      stroke-width="0"
-                      viewBox="0 0 448 512"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M372.57 112.641v-10.825c0-43.612-40.52-76.691-83.039-65.546-25.629-49.5-94.09-47.45-117.982.747C130.269 26.456 89.144 57.945 89.144 102v126.13c-19.953-7.427-43.308-5.068-62.083 8.871-29.355 21.796-35.794 63.333-14.55 93.153L132.48 498.569a32 32 0 0 0 26.062 13.432h222.897c14.904 0 27.835-10.289 31.182-24.813l30.184-130.958A203.637 203.637 0 0 0 448 310.564V179c0-40.62-35.523-71.992-75.43-66.359zm27.427 197.922c0 11.731-1.334 23.469-3.965 34.886L368.707 464h-201.92L51.591 302.303c-14.439-20.27 15.023-42.776 29.394-22.605l27.128 38.079c8.995 12.626 29.031 6.287 29.031-9.283V102c0-25.645 36.571-24.81 36.571.691V256c0 8.837 7.163 16 16 16h6.856c8.837 0 16-7.163 16-16V67c0-25.663 36.571-24.81 36.571.691V256c0 8.837 7.163 16 16 16h6.856c8.837 0 16-7.163 16-16V101.125c0-25.672 36.57-24.81 36.57.691V256c0 8.837 7.163 16 16 16h6.857c8.837 0 16-7.163 16-16v-76.309c0-26.242 36.57-25.64 36.57-.691v131.563z"
-                      ></path></svg
-                  ></span>
-                </div>
-              </span>
-              <p class="">Username</p>
-              <p class="">01/01/2022</p>
-            </div>
-          </div>
+          <TemplateItem />
           <div class="border-[1px]">
             <div class="flex items-center justify-between p-2">
               <div class="flex items-center gap-[5px]">
@@ -366,8 +287,9 @@ const onClickCopy = (value) => {
       </div>
     </div>
   </div>
-  <Toast
-    v-show="toastVisible"
+  <ToastListItem
+    v-show="toastShow"
     :toastText="`${resultString} is copied to clipboard`"
+    @close="closeToast"
   />
 </template>

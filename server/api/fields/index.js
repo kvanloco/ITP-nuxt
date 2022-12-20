@@ -1,6 +1,6 @@
 export default defineEventHandler(async () => {
-  var result = await fetch('https://jsonplaceholder.typicode.com/posts');
-  var data = await result.json();
+  //var result = await fetch('https://jsonplaceholder.typicode.com/posts');
+  //var data = await result.json();
   console.log('ran backend function');
   //console.log(data);
 
