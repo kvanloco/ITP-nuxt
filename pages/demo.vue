@@ -49,6 +49,7 @@ const onOutput = (n, index, hasErrors) => {
 const openToast = () => {
   toastVisible.value = true;
   const timeOut = setTimeout(() => (toastVisible.value = false), 5000);
+  //clearTimeout(timeOut);
 };
 
 const onClickCopy = (value) => {
