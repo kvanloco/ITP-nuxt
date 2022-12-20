@@ -8,7 +8,24 @@ export default defineEventHandler(async () => {
     {
       title: 'Fieldname 1',
       subTitle: 'subtitle',
-      initialInputValue: 'boe',
+      initialInputValue: '123',
+      slug: 'projectref',
+      type: 'text',
+      // validation via watch
+      required: true,
+      minlength: 5,
+      maxlength: 10,
+      unique: false,
+      // format output
+      prefix: 'PMO',
+      postfix: '',
+      space: '-',
+      capitalize: true,
+    },
+    {
+      title: 'Fieldname 2',
+      subTitle: 'subtitle',
+      initialInputValue: '',
       slug: 'projectref',
       type: 'text',
       // validation via watch
@@ -18,14 +35,14 @@ export default defineEventHandler(async () => {
       unique: false,
       // format output
       prefix: '',
-      postfix: '-ax',
+      postfix: '',
       space: '-',
       capitalize: false,
     },
     {
       title: 'Fieldname 2',
       subTitle: 'subtitle',
-      initialInputValue: 'kieke boe',
+      initialInputValue: '',
       slug: 'projectref',
       type: 'text',
       // validation via watch
@@ -35,24 +52,24 @@ export default defineEventHandler(async () => {
       unique: false,
       // format output
       prefix: '',
-      postfix: '-ax',
+      postfix: '',
       space: '-',
       capitalize: false,
     },
     {
       title: 'Fieldname 2',
       subTitle: 'subtitle',
-      initialInputValue: 'kieke boe 2',
+      initialInputValue: '',
       slug: 'projectref',
-      type: 'text',
+      type: 'number',
       // validation via watch
       required: true,
-      minlength: 5,
-      maxlength: 10,
+      minlength: 3,
+      maxlength: undefined,
       unique: false,
       // format output
       prefix: '',
-      postfix: '-ax',
+      postfix: '',
       space: '-',
       capitalize: false,
     },

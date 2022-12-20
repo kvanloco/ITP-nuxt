@@ -49,6 +49,10 @@ const output = computed(() => {
   if (props.postfix.length > 0) {
     result = addPostfix(result);
   }
+  // add extra 000 to number
+  if (props.type == 'number' && props.minlength > 0) {
+    console.log('test')
+  } 
   return result;
 });
 
@@ -68,6 +72,12 @@ const addPostfix = (value) => {
 // Input validation
 watch(output, (newOutput, prevOutput) => {
   errorMessage.value = '';
+  // check if is needs to be a number and is a number
+  if (props.type == 'number' && isNaN(parseInt(input.value))) {
+    console.log(parseInt(input.value) == 'NaN');
+    errorMessage.value = `This field needs to be a number`;
+  }
+
   // check min length
   if (input.value.length < props.minlength) {
     errorMessage.value = `You need min ${props.minlength} characters`;
@@ -98,7 +108,7 @@ watch(output, (newOutput, prevOutput) => {
     "
   >
     <div class="flex gap-x-[2px] flex-col min-h-[40px]">
-      <p class="">{{ title }} - {{ index }}</p>
+      <p class="">{{ title }} - {{ props.type }}</p>
       {{ output }}
       <span class="text-xs text-blue-300">{{ subTitle }}</span>
     </div>
