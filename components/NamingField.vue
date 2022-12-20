@@ -32,7 +32,7 @@ onMounted(() => {
 
 // Input formatting
 const output = computed(() => {
-  let result = input.value;
+  let result = String(input.value);
   // Trim spaces and replace spaces if props.space value is given
   if (props.space.length > 0) {
     result = result.trim().replace(/\s/g, props.space);
@@ -51,8 +51,8 @@ const output = computed(() => {
   }
   // add extra 000 to number
   if (props.type == 'number' && props.minlength > 0) {
-    console.log('test')
-  } 
+    result = String(result).padStart(3, '0');
+  }
   return result;
 });
 
@@ -74,16 +74,15 @@ watch(output, (newOutput, prevOutput) => {
   errorMessage.value = '';
   // check if is needs to be a number and is a number
   if (props.type == 'number' && isNaN(parseInt(input.value))) {
-    console.log(parseInt(input.value) == 'NaN');
     errorMessage.value = `This field needs to be a number`;
   }
 
   // check min length
-  if (input.value.length < props.minlength) {
+  if (input.value.toString().length < props.minlength) {
     errorMessage.value = `You need min ${props.minlength} characters`;
   }
   // check max length
-  if (input.value.length > props.maxlength) {
+  if (input.value.toString().length > props.maxlength) {
     errorMessage.value = `You need max ${props.maxlength} characters`;
   }
   // check required
@@ -112,7 +111,11 @@ watch(output, (newOutput, prevOutput) => {
       {{ output }}
       <span class="text-xs text-blue-300">{{ subTitle }}</span>
     </div>
-    <input class="p-1 border border-gray-200 text-sm" v-model="input" />
+    <input
+      class="p-1 border border-gray-200 text-sm"
+      v-model="input"
+      :type="props.type"
+    />
     <div class="flex gap-x-[2px] flex-col min-h-[25px] xl:">
       <span class="text-xs text-red-300">{{ errorMessage }}</span>
     </div>

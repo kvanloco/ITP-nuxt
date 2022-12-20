@@ -44,11 +44,11 @@ export default defineEventHandler(async () => {
       subTitle: 'subtitle',
       initialInputValue: '',
       slug: 'projectref',
-      type: 'text',
+      type: 'number',
       // validation via watch
       required: true,
-      minlength: 5,
-      maxlength: 10,
+      minlength: 3,
+      maxlength: 3,
       unique: false,
       // format output
       prefix: '',
@@ -64,8 +64,8 @@ export default defineEventHandler(async () => {
       type: 'number',
       // validation via watch
       required: true,
-      minlength: 3,
-      maxlength: undefined,
+      minlength: 2,
+      maxlength: 2,
       unique: false,
       // format output
       prefix: '',
