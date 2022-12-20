@@ -10,6 +10,10 @@ const maxLength = 20;
 const hyphen = '_';
 const outputArray = ref([]);
 const errorMessage = ref('');
+const errorFromChild = ref('');
+const toastVisible = ref(false);
+
+const { text, copy, copied, isSupported } = useClipboard();
 
 const resultString = computed(() => {
   // if all fields are empty, return empty string
@@ -33,9 +37,23 @@ watch(resultString, (newOutput, prevOutput) => {
   }
 });
 // from child field components
-const onOutput = (n, index) => {
+const onOutput = (n, index, hasErrors) => {
   //console.log('Output at parent level:  ' + n + ' - ' + index);
   outputArray.value.splice(index, 1, n);
+  errorFromChild.value = '';
+  if (hasErrors) {
+    errorFromChild.value = 'There are 1 or more errors';
+  }
+};
+
+const openToast = () => {
+  toastVisible.value = true;
+  const timeOut = setTimeout(() => (toastVisible.value = false), 5000);
+};
+
+const onClickCopy = (value) => {
+  copy(value);
+  openToast();
 };
 </script>
 
@@ -74,6 +92,7 @@ const onOutput = (n, index) => {
                 >
                   <div style="font-size: inherit; color: inherit; padding: 2px">
                     <svg
+                      @click="onClickCopy(resultString)"
                       stroke="currentColor"
                       fill="currentColor"
                       stroke-width="0"
@@ -90,6 +109,7 @@ const onOutput = (n, index) => {
                 </span>
               </div>
               <div class="text-red-300 text-center">{{ errorMessage }}</div>
+              <div class="text-red-300 text-center">{{ errorFromChild }}</div>
             </div>
           </div>
           <div class="">
@@ -345,4 +365,8 @@ const onOutput = (n, index) => {
       </div>
     </div>
   </div>
+  <Toast
+    v-show="toastVisible"
+    :toastText="`${resultString} is copied to clipboard`"
+  />
 </template>

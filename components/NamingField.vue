@@ -23,8 +23,16 @@ const props = defineProps({
 
 const emit = defineEmits(['output']);
 
+
 const input = ref(props.initialInputValue);
 const errorMessage = ref('');
+const hasErrors = computed(() => {
+  if (errorMessage.value.length > 0) {
+    return true;
+  } else {
+    return false;
+  }
+});
 
 onMounted(() => {
   emit('output', output.value, props.index);
@@ -51,7 +59,7 @@ const output = computed(() => {
   }
   // add extra 000 to number
   if (props.type == 'number' && props.minlength > 0) {
-    result = String(result).padStart(3, '0');
+    result = String(result).padStart(props.minlength, '0');
   }
   return result;
 });
@@ -91,7 +99,7 @@ watch(output, (newOutput, prevOutput) => {
   }
   // TODO check Unique
 
-  emit('output', output.value, props.index);
+  emit('output', output.value, props.index, hasErrors.value);
 });
 </script>
 
@@ -115,6 +123,7 @@ watch(output, (newOutput, prevOutput) => {
       class="p-1 border border-gray-200 text-sm"
       v-model="input"
       :type="props.type"
+      :maxlength="props.maxlength"
     />
     <div class="flex gap-x-[2px] flex-col min-h-[25px] xl:">
       <span class="text-xs text-red-300">{{ errorMessage }}</span>
