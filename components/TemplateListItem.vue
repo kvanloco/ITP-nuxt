@@ -15,13 +15,10 @@ const props = defineProps({
  */
 const currentOpen = ref('');
 const toggle = (index) => {
-  console.log('index: ' + index + ' - currentOpen: ' + currentOpen);
-  if (index == currentOpen) {
-    console.log('hide');
+  if (index == currentOpen.value) {
     // hide
     currentOpen.value = 999999;
   } else {
-    console.log('show');
     //show
     currentOpen.value = index;
   }
@@ -93,7 +90,7 @@ const toggle = (index) => {
             </span>
           </div>
           <button @click="toggle(index)" class="p-1 text-sm text-blue-500">
-            {{ index === currentOpen ? 'hide' : 'show' }} {{ currentOpen }}
+            {{ index === currentOpen ? 'hide' : 'show' }}
           </button>
         </div>
 
