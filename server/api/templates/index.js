@@ -33,7 +33,7 @@ export default defineEventHandler(async () => {
         },
         {
           title: 'Fieldname 2',
-          subTitle: 'subtitle',
+          subTitle: 'subtitle 2',
           initialInputValue: '',
           slug: 'projectref',
           type: 'text',
@@ -49,8 +49,8 @@ export default defineEventHandler(async () => {
           capitalize: false,
         },
         {
-          title: 'Fieldname 2',
-          subTitle: 'subtitle',
+          title: 'Fieldname 3',
+          subTitle: 'subtitle 3',
           initialInputValue: '',
           slug: 'projectref',
           type: 'number',
@@ -66,8 +66,8 @@ export default defineEventHandler(async () => {
           capitalize: false,
         },
         {
-          title: 'Fieldname 2',
-          subTitle: 'subtitle',
+          title: 'Fieldname 4',
+          subTitle: 'subtitle 4',
           initialInputValue: '',
           slug: 'projectref',
           type: 'number',

@@ -9,6 +9,23 @@ const props = defineProps({
   teamname: String,
   fields: Array,
 });
+
+/*
+ * ACCORDION
+ */
+const currentOpen = ref('');
+const toggle = (index) => {
+  console.log('index: ' + index + ' - currentOpen: ' + currentOpen);
+  if (index == currentOpen) {
+    console.log('hide');
+    // hide
+    currentOpen.value = 999999;
+  } else {
+    console.log('show');
+    //show
+    currentOpen.value = index;
+  }
+};
 </script>
 
 <template>
@@ -23,17 +40,7 @@ const props = defineProps({
       </div>
       <div class="max-w-[250px] flex items-center gap-2 xl:items-start">
         <p class="text-xs">Lorem ipsum dolar sit qdfqsdfdsfqsdf sqdfqsdf</p>
-        <button
-          class="
-            min-w-[130px]
-            p-1
-            max-w-[250px]
-            bg-blue-500
-            text-white
-            p-2
-            rounded-global
-          "
-        >
+        <button class="min-w-[130px] p-1 max-w-[250px] bg-blue-500 text-white">
           Use this template
         </button>
       </div>
@@ -75,17 +82,32 @@ const props = defineProps({
     </div>
     <div class="p-2">
       <h1 class="text-xl">Fields</h1>
-      <div class="flex">
-        <table>
-          <tr v-for="(field, index) in fields">
-            <td class="min-w-[150px]">Title</td>
-            <td>Title van dit item</td>
-          </tr>
-          <tr>
-            <td class="min-w-[150px]">Subtitle</td>
-            <td>subtitle van dit item</td>
-          </tr>
-        </table>
+      <div class="flex flex-col" v-for="(field, index) in fields">
+        <!-- Fields list in template-->
+        <div class="flex justify-between items-center">
+          <div class="">
+            <span class="font-semibold"> {{ field.title }} </span>
+
+            <span class="font-light text-blue-400">
+              | {{ field.subTitle }} | {{ field.type }}
+            </span>
+          </div>
+          <button @click="toggle(index)" class="p-1 text-sm text-blue-500">
+            {{ index === currentOpen ? 'hide' : 'show' }} {{ currentOpen }}
+          </button>
+        </div>
+
+        <div
+          v-show="index === currentOpen"
+          class="border-t border-b bg-gray-50 ml-2 p-1"
+        >
+          <ul>
+            <li v-for="(value, key) in field">
+              <span class="min-w-[150px] inline-block">{{ key }} </span>
+              {{ value }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
