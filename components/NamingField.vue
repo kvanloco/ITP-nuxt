@@ -111,6 +111,7 @@ watch(output, (newOutput, prevOutput) => {
       my-1
       hover:border-amber-400
       border-t border-b
+      flex flex-col
     "
   >
     <div class="flex gap-x-[2px] flex-col min-h-[40px]">
@@ -123,7 +124,7 @@ watch(output, (newOutput, prevOutput) => {
       :type="props.type"
       :maxlength="props.maxlength"
     />
-    <div class="flex gap-x-[2px] flex-col min-h-[25px] xl:">
+    <div class="flex gap-x-[2px] flex-col min-h-[25px]">
       <span class="text-xs text-red-300">{{ errorMessage }}</span>
     </div>
   </div>

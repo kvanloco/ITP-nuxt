@@ -7,32 +7,31 @@ const props = defineProps({
   creationDate: String,
   categorie: String,
   teamname: String,
+  fields: Array,
 });
 </script>
 
 <template>
-  <div class="border-[1px]">
+  <div class="border">
     <div class="flex items-center justify-between p-2 xl:items-start">
-      <div class="flex-col flex items-center gap-[5px] xl:items-start">
-        <h3 class="text-3xl font-semibold xl:text-[20px]">Template name 123</h3>
-        <div class="flex gap-x-[10px]">
-          <p class="text-blue-500">Categorie 1</p>
-          <p class="text-blue-500">Teamname</p>
+      <div class="flex-col flex items-center gap-2 xl:items-start">
+        <h3 class="text-3xl font-semibold xl:text-[20px]">{{ props.title }}</h3>
+        <div class="flex gap-x-2">
+          <p class="text-blue-500">{{ props.categorie }}</p>
+          <p class="text-blue-500">{{ props.teamname }}</p>
         </div>
       </div>
-      <div class="max-w-[250px] flex items-center gap-[5px] xl:items-start">
-        <p class="">Lorem ipsum dolar sit qdfqsdfdsfqsdf sqdfqsdf</p>
+      <div class="max-w-[250px] flex items-center gap-2 xl:items-start">
+        <p class="text-xs">Lorem ipsum dolar sit qdfqsdfdsfqsdf sqdfqsdf</p>
         <button
-          id="tyinnD"
           class="
             min-w-[130px]
-            p-[1px]
+            p-1
             max-w-[250px]
-            bg-primary
+            bg-blue-500
             text-white
-            py-2
+            p-2
             rounded-global
-            px-2
           "
         >
           Use this template
@@ -40,32 +39,21 @@ const props = defineProps({
       </div>
     </div>
     <div class="p-2">
-      <p class="text-[1.5em]">Description</p>
-      <p class="">
-        Lorem Ipsum is slechts een proeftekst uit het drukkerij- en
-        zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze
-        bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak
-        met letters nam en ze door elkaar husselde om een font-catalogus te
-        maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel
-        onveranderd, overgenomen in elektronische letterzetting. Het is in de
-        jaren &amp;#x27;60 populair geworden met de introductie van Letraset
-        vellen met Lorem Ipsum passages en meer recentelijk door desktop
-        publishing software zoals Aldus PageMaker die versies van Lorem Ipsum
-        bevatten.
-      </p>
+      <p class="text-xl">Description</p>
+      <p class="">{{ props.description }}ddd</p>
     </div>
     <div class="p-2">
-      <p class="text-[1.5em]">Examples</p>
+      <p class="text-xl">Examples</p>
       <ul class="list-disc list-inside">
         <li class="flex items-center gap-x-3">001_Lorem-ipsum_001_v45</li>
         <li class="flex items-center gap-x-3">001_Lorem-ipsum_001_v45</li>
         <li class="flex items-center gap-x-3">001_Lorem-ipsum_001_v45</li>
       </ul>
     </div>
-    <div class="flex items-center gap-[5px] p-2">
+    <div class="flex items-center gap-2 p-2">
       <span class="w-10 h-10">
         <div class="">
-          <span class="text-[24px]"
+          <span class="text-xl"
             ><svg
               class="text-[24px]"
               stroke="currentColor"
@@ -82,8 +70,23 @@ const props = defineProps({
           ></span>
         </div>
       </span>
-      <p class="">Username</p>
-      <p class="">01/01/2022</p>
+      <p class="">{{ props.username }}</p>
+      <p class="">{{ props.creationDate }}</p>
+    </div>
+    <div class="p-2">
+      <h1 class="text-xl">Fields</h1>
+      <div class="flex">
+        <table>
+          <tr v-for="(field, index) in fields">
+            <td class="min-w-[150px]">Title</td>
+            <td>Title van dit item</td>
+          </tr>
+          <tr>
+            <td class="min-w-[150px]">Subtitle</td>
+            <td>subtitle van dit item</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </template>
