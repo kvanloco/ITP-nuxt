@@ -20,12 +20,12 @@ export default defineEventHandler(async () => {
           initialInputValue: '123',
           slug: 'projectref',
           type: 'text',
-          // validation via watch
+       
           required: true,
           minlength: 5,
           maxlength: 10,
           unique: false,
-          // format output
+         
           prefix: 'PMO',
           postfix: '',
           space: '-',
@@ -37,12 +37,12 @@ export default defineEventHandler(async () => {
           initialInputValue: '',
           slug: 'projectref',
           type: 'text',
-          // validation via watch
+
           required: true,
           minlength: 5,
           maxlength: 10,
           unique: false,
-          // format output
+
           prefix: '',
           postfix: '',
           space: '-',
@@ -54,12 +54,12 @@ export default defineEventHandler(async () => {
           initialInputValue: '',
           slug: 'projectref',
           type: 'number',
-          // validation via watch
+
           required: true,
           minlength: 3,
           maxlength: 3,
           unique: false,
-          // format output
+
           prefix: '',
           postfix: '',
           space: '-',
@@ -71,12 +71,12 @@ export default defineEventHandler(async () => {
           initialInputValue: '',
           slug: 'projectref',
           type: 'number',
-          // validation via watch
+
           required: true,
           minlength: 2,
           maxlength: 2,
           unique: false,
-          // format output
+
           prefix: '',
           postfix: '',
           space: '-',
