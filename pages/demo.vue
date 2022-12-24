@@ -2,14 +2,12 @@
 const config = useRuntimeConfig();
 const supabase = useSupabaseClient();
 
-/* let { data: templatess, error: thisError } = await supabase
-  .from('templates')
-  .select('*'); */
-
 const { data: templatess } = await useAsyncData('tasks', async () => {
   const { data } = await supabase.from('templates').select();
   return data;
 });
+
+
 
 const {
   data: namingFields,

@@ -1,4 +1,15 @@
 <script setup>
+const props = defineProps({
+  title: String,
+  description: String,
+  examples: Array,
+  username: String,
+  creationDate: String,
+  categorie: String,
+  teamname: String,
+  fields: Array,
+});
+
 const templateForm = reactive({
   title: '',
 });
@@ -6,6 +17,7 @@ const templateForm = reactive({
 
 <template>
   <form>
+    {{ props }}
     <div class="flex mt-1">
       <label for="title" class="min-w-[100px]">Title</label>
       <input
