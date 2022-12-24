@@ -37,6 +37,7 @@ const onSelectTemplate = (template) => {
                 <li @click="onSelectTemplate(t)" class="cursor-pointer">
                   {{ t.title }}
                 </li>
+                
               </ul>
             </div>
           </div>
