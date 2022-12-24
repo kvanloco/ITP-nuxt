@@ -15,10 +15,11 @@ const templateForm = reactive({
     </div>
     <div class="flex mt-1">
       <label for="description" class="min-w-[100px]">Description</label>
-      <input
+      <textarea
         class="p-1 border border-gray-200 text-sm w-full inline-block"
         v-model="templateForm.description"
-      />
+        rows="5"
+      ></textarea>
     </div>
     <button class="min-w-[130px] p-1 max-w-[250px] bg-blue-400 text-white mt-1">
       Add new template
