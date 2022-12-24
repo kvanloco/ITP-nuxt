@@ -8,6 +8,7 @@
           <h6 class="font-semibold text-xl">Admin page</h6>
           <p class="">Lorem ipsum dolar sit</p>
         </div>
+        <TemplateForm />
       </div>
     </div>
   </div>
