@@ -7,13 +7,18 @@ const { data: templates } = await useAsyncData('tasks', async () => {
   return data;
 });
 
-let selectedTemplate = reactive({});
+const selectedTemplate = ref(null);
+const editMode = ref(true);
 
 const onSelectTemplate = (template) => {
-  console.log(unref(template));
-
-  selectedTemplate = template;
+  selectedTemplate.value = unref(template);
 };
+
+const onNewTemplate = () => {
+  selectedTemplate.value = null;
+  editMode.value = false;
+};
+console.log('test');
 </script>
 
 <template>
@@ -23,12 +28,19 @@ const onSelectTemplate = (template) => {
         <div class="pb-3 border-top">
           <h6 class="font-semibold text-xl">Admin page</h6>
           <p class="">Lorem ipsum dolar sit</p>
+          <button
+            class="p-1 max-w-[250px] bg-blue-400 text-white mt-1"
+            @click="onNewTemplate"
+          >
+            New template
+          </button>
+          {{ editMode }}
         </div>
         <div class="flex">
           <div class="w-1/2 p-2">
-            {{ selectedTemplate }}
+            <!-- Template -->
             <client-only placeholder="Loading...">
-              <TemplateForm v-bind="selectedTemplate" />
+              <TemplateForm v-bind="selectedTemplate" editMode="true" />
             </client-only>
           </div>
           <div class="w-1/2 p-2">
@@ -37,7 +49,6 @@ const onSelectTemplate = (template) => {
                 <li @click="onSelectTemplate(t)" class="cursor-pointer">
                   {{ t.title }}
                 </li>
-                
               </ul>
             </div>
           </div>

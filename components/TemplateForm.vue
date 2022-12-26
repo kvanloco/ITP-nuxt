@@ -8,36 +8,33 @@ const props = defineProps({
   categorie: String,
   teamname: String,
   fields: Array,
+  editMode: Boolean,
 });
 
-const templateForm = reactive({
-  title: '',
-});
+const emit = defineEmits(['title']);
 </script>
 
 <template>
   <form>
-    {{ props }}
     <div class="flex mt-1">
       <label for="title" class="min-w-[100px]">Title</label>
       <input
         class="p-1 border border-gray-200 text-sm w-full inline-block"
-        v-model="templateForm.title"
+        :value="props.title"
+        @input="emit('title', $event.target.value)"
       />
     </div>
     <div class="flex mt-1">
       <label for="description" class="min-w-[100px]">Description</label>
       <textarea
         class="p-1 border border-gray-200 text-sm w-full inline-block"
-        v-model="templateForm.description"
+        :value="props.description"
         rows="5"
       ></textarea>
     </div>
     <button class="min-w-[130px] p-1 max-w-[250px] bg-blue-400 text-white mt-1">
       Add new template
     </button>
-    <div>
-      {{ templateForm }}
-    </div>
+    <div></div>
   </form>
 </template>

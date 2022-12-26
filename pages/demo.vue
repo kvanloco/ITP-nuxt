@@ -7,8 +7,6 @@ const { data: templatess } = await useAsyncData('tasks', async () => {
   return data;
 });
 
-
-
 const {
   data: namingFields,
   pending,
@@ -97,7 +95,7 @@ const onClickCopy = (value) => {
           <div v-if="pending"></div>
           <div v-else class="justify-center flex-grow flex px-2 gap-2 py-5">
             <div v-for="(field, index) in namingFields" class="flex-auto">
-              <!-- Template -->
+              <!-- Template  Naming fields-->
               <client-only placeholder="Loading...">
                 <NamingField v-bind="field" :index="index" @output="onOutput" />
               </client-only>
@@ -105,6 +103,7 @@ const onClickCopy = (value) => {
           </div>
 
           <div class="flex px-2 gap-2 justify-center py-5">
+            <!-- Template  result string-->
             <div
               class="flex flex-col gap-3 my-1 p-4 px-64 border-primary border-2"
             >
@@ -140,6 +139,7 @@ const onClickCopy = (value) => {
             </div>
           </div>
           <div class="">
+            <!-- Template  List created templates-->
             <div class="flex px-2 gap-2 py-1">
               <div class="w-[40%] my-1">
                 <p class="">PA-012_dsqfmd_qsdf_000_01</p>
@@ -232,7 +232,7 @@ const onClickCopy = (value) => {
         <div class="grid xl:grid-cols-2 2xl:grid-cols-3 gap-2 py-5">
           <!-- Template List Item-->
           <TemplateListItem
-            v-for="(template, index) in templatesData"
+            v-for="(template, index) in templatess"
             v-bind="template"
             :index="index"
             class=""
