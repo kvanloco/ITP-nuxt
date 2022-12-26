@@ -28,10 +28,11 @@ const toggle = (index) => {
 <template>
   <div class="border">
     <div class="flex items-center justify-between p-2 xl:items-start">
-      <div class="flex-col flex items-center gap-2 xl:items-start">
+      <div class="flex-col flex items-center xl:items-start">
         <h3 class="text-3xl font-semibold xl:text-[20px]">{{ props.title }}</h3>
         <div class="flex gap-x-2">
           <p class="text-blue-500">{{ props.categorie }}</p>
+          -
           <p class="text-blue-500">{{ props.teamname }}</p>
         </div>
       </div>
