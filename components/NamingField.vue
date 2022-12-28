@@ -3,7 +3,7 @@
 TODO
 - emit output
 */
-const { x, y } = useMouse();
+
 const props = defineProps({
   title: String,
   subTitle: String,
@@ -115,7 +115,6 @@ watch(output, (newOutput, prevOutput) => {
     "
   >
     <div class="flex gap-x-[2px] flex-col min-h-[40px]">
-      Mouse position is at: {{ x }}, {{ y }}
       <p class="">{{ title }}</p>
       <span class="text-xs text-blue-300">{{ subTitle }}</span>
     </div>
