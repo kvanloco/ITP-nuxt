@@ -1,8 +1,10 @@
 <template>
   <div>
     <AppHeader class="mt-1" />
-    
-    <slot />
-    <AppFooter />
+    <div class="container mx-auto text-sm pt-6">
+      <div class="flex flex-col">
+        <slot />
+      </div>
+    </div>
   </div>
 </template>
