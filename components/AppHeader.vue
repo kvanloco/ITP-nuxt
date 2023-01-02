@@ -13,6 +13,10 @@ const menuLinks = [
     to: '/demo',
   },
   {
+    name: 'Templates',
+    to: '/templates',
+  },
+  {
     name: 'Admin',
     to: '/admin',
   },

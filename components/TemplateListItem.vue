@@ -1,5 +1,7 @@
 <script setup>
 const props = defineProps({
+  id: Number,
+  uuid: String,
   title: String,
   description: String,
   examples: Array,
@@ -29,7 +31,9 @@ const toggle = (index) => {
   <div class="border">
     <div class="flex items-center justify-between p-2 xl:items-start">
       <div class="flex-col flex items-center xl:items-start">
-        <h3 class="text-3xl font-semibold xl:text-[20px]">{{ props.title }}</h3>
+        <h3 class="text-3xl font-semibold xl:text-[20px]">
+          {{ props.title }} - {{ props.uuid }}
+        </h3>
         <div class="flex gap-x-2">
           <p class="text-blue-500">{{ props.categorie }}</p>
           -
