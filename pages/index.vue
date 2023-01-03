@@ -12,7 +12,10 @@ definePageMeta({
       <div class="container mx-auto pt-24 px-4">
         <div class="flex flex-wrap -mx-4">
           <div class="mx-auto px-4 text-center w-full lg:w-8/12 xl:w-6/12">
-            <h1 class="font-normal mb-4 text-6xl text-gray-900">Naming tool</h1>
+            <h1 class="font-normal mb-4 text-6xl text-gray-900">
+              Naming tool
+              <span class="text-base text-blue-500">(coming soon)</span>
+            </h1>
             <p class="mb-6 text-lg">
               Create structure in your document names and get yourself and your
               team on the same page!
