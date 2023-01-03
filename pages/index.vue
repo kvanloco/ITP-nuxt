@@ -8,7 +8,7 @@ definePageMeta({
 <template>
   <div data-pg-name="list-content" class="">
     <!-- first section -->
-    <section class="bg-gray-100 relative text-gray-500">
+    <section class="bg-gray-100 text-gray-500">
       <div class="container mx-auto pt-24 px-4">
         <div class="flex flex-wrap -mx-4">
           <div class="mx-auto px-4 text-center w-full lg:w-8/12 xl:w-6/12">
@@ -304,20 +304,6 @@ definePageMeta({
       </div>
     </section>
 
-    <div class="bg-dark">
-      <svg
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-        fill="currentColor"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        height="80"
-        width="100%"
-        class="bg-light d-block text-white"
-      >
-        <path d="M 100 100 V 0 L 0 100" />
-      </svg>
-    </div>
     <!-- second section -->
     <section class="bg-opacity-25 pb-20 pt-40 text-center text-gray-500">
       <div class="container mx-auto px-4">
