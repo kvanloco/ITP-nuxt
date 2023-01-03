@@ -554,5 +554,73 @@ definePageMeta({
         </div>
       </div>
     </section>
+    <section class="bg-gray-100 py-20 text-center text-gray-500">
+      <div class="container mx-auto px-4 relative">
+        <div class="flex flex-wrap -mx-4">
+          <div class="mx-auto p-4 w-full lg:w-8/12">
+            <h2
+              class="
+                font-extrabold
+                leading-tight
+                mb-2
+                text-3xl text-gray-800
+                uppercase
+              "
+            >
+              Join our newsletter and get updated
+            </h2>
+            <p class="mb-8">
+              Sign up for our newsletter to receive updates and exclusive offers
+            </p>
+            <form class="mx-auto sm:w-9/12 xl:w-8/12">
+              <div
+                class="
+                  bg-white
+                  border-2 border-gray-300
+                  flex
+                  items-center
+                  mb-6
+                  overflow-hidden
+                  p-1
+                  rounded
+                "
+              >
+                <input
+                  class="
+                    appearance-none
+                    border-0
+                    flex-1
+                    outline-0
+                    focus:outline-0
+                    px-5
+                    py-2
+                    text-gray-600
+                    w-full
+                  "
+                  placeholder="Enter email..."
+                  type="email"
+                  required
+                />
+                <button
+                  type="submit"
+                  class="
+                    bg-blue-600
+                    hover:bg-blue-700
+                    inline-block
+                    px-8
+                    py-2
+                    rounded
+                    text-center text-white
+                    uppercase
+                  "
+                >
+                  Sign Up
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
