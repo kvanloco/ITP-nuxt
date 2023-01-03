@@ -16,10 +16,7 @@ const menuLinks = [
     name: 'Templates',
     to: '/templates',
   },
-  {
-    name: 'Admin',
-    to: '/admin',
-  },
+
   {
     name: 'Login',
     to: '/login',
