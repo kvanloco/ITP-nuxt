@@ -4,10 +4,12 @@ const menuLinks = [
     name: 'Home',
     to: '/',
   },
+  /*
   {
     name: 'About',
     to: '/about',
   },
+  */
   {
     name: 'Demo',
     to: '/demo',
@@ -16,11 +18,12 @@ const menuLinks = [
     name: 'Templates',
     to: '/templates',
   },
-
+  /*
   {
     name: 'Login',
     to: '/login',
   },
+  */
 ];
 </script>
 

@@ -544,15 +544,7 @@ definePageMeta({
       <div class="container mx-auto px-4 relative">
         <div class="flex flex-wrap -mx-4">
           <div class="mx-auto p-4 w-full lg:w-8/12">
-            <h2
-              class="
-                font-extrabold
-                leading-tight
-                mb-2
-                text-3xl text-gray-800
-                uppercase
-              "
-            >
+            <h2 class="mb-2 text-4xl text-gray-800">
               Join our newsletter and get updated
             </h2>
             <p class="mb-8">
