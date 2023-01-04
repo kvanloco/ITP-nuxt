@@ -51,7 +51,7 @@ definePageMeta({
             <h6 class="mt-6 text-base font-semibold">
               Sign up to get notified when it's ready.
             </h6>
-            <form class="mt-2 mx-auto sm:w-6/12 xl:w-6/12">
+            <form class="mt-2 mx-auto xl:w-10/12">
               <div
                 class="
                   bg-white
