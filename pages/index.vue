@@ -7,21 +7,20 @@ definePageMeta({
 
 <template>
   <div data-pg-name="list-content" class="">
-    <!-- first section -->
+    <!-- first section Hero -->
     <section class="bg-gray-100 text-gray-500">
       <div class="container mx-auto pt-24 px-4">
         <div class="flex flex-wrap -mx-4">
           <div class="mx-auto px-4 text-center w-full lg:w-8/12 xl:w-6/12">
-            <h1 class="font-normal mb-4 text-6xl text-gray-900">
-              Naming tool
-              <span class="text-base text-blue-500">(coming soon)</span>
-            </h1>
+            <h6 class="text-base text-blue-500">Coming soon</h6>
+            <h1 class="font-normal mb-4 text-6xl text-gray-900">Naming tool</h1>
             <p class="mb-6 text-lg">
               Create structure in your document names and get yourself and your
               team on the same page!
             </p>
-            <a
-              href="#"
+            <NuxtLink
+              to="demo"
+              aria-current="page"
               class="
                 bg-blue-600
                 hover:bg-blue-800
@@ -32,8 +31,10 @@ definePageMeta({
                 rounded
                 text-white
               "
-              >Demo </a
-            ><a
+            >
+              Demo
+            </NuxtLink>
+            <a
               href="#"
               class="
                 bg-white
@@ -46,13 +47,62 @@ definePageMeta({
               "
               >See public templates</a
             >
+
+            <h6 class="mt-6 text-base font-semibold">
+              Sign up to get notified when it's ready.
+            </h6>
+            <form class="mt-2 mx-auto sm:w-6/12 xl:w-6/12">
+              <div
+                class="
+                  bg-white
+                  border border-gray-300
+                  flex
+                  items-center
+                  mb-6
+                  overflow-hidden
+                  p-1
+                  rounded
+                "
+              >
+                <input
+                  class="
+                    appearance-none
+                    border-0
+                    flex-1
+                    outline-0
+                    focus:outline-0
+                    px-5
+                    py-2
+                    text-gray-600
+                    w-full
+                  "
+                  placeholder="Enter email..."
+                  type="email"
+                  required
+                />
+                <button
+                  type="submit"
+                  class="
+                    bg-blue-600
+                    hover:bg-blue-700
+                    inline-block
+                    px-8
+                    py-2
+                    rounded
+                    text-center text-white
+                    uppercase
+                  "
+                >
+                  Notify me
+                </button>
+              </div>
+            </form>
+            ,
           </div>
           <div class="mx-auto px-4 text-center w-full lg:w-8/12">
             <div class="-mb-40 bg-white mt-10 p-16 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="524.67004"
-                height="531.39694"
                 viewBox="0 0 524.67004 531.39694"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
               >
@@ -304,7 +354,7 @@ definePageMeta({
       </div>
     </section>
 
-    <!-- second section -->
+    <!-- second section Features-->
     <section class="bg-opacity-25 pb-20 pt-40 text-center text-gray-500">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap -mx-4 items-center mb-4">
@@ -540,6 +590,7 @@ definePageMeta({
         </div>
       </div>
     </section>
+    <!-- second section -->
     <section class="bg-gray-100 py-20 text-center text-gray-500">
       <div class="container mx-auto px-4 relative">
         <div class="flex flex-wrap -mx-4">
