@@ -44,7 +44,7 @@ const menuLinks = [
         class="container flex flex-wrap items-center justify-between mx-auto"
       >
         <a href="/" class="flex items-center">
-          <img src="logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
+          <img src="logo.png" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
           <span
             class="
               self-center
