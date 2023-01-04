@@ -15,15 +15,15 @@ definePageMeta({
             <h6 class="text-base text-blue-500">Coming soon</h6>
             <h1 class="font-normal mb-4 text-6xl text-gray-900">Naming tool</h1>
             <p class="mb-6 text-lg">
-              Create structure in your document names and get yourself and your
-              team on the same page!
+              Create structured document names and get yourself and your team on
+              the same page!
             </p>
             <NuxtLink
               to="demo"
               aria-current="page"
               class="
                 bg-blue-600
-                hover:bg-blue-800
+                hover:bg-blue-700
                 inline-block
                 px-5
                 py-2
@@ -52,29 +52,18 @@ definePageMeta({
               Sign up to get notified when it's ready.
             </h6>
             <form class="mt-2 mx-auto xl:w-10/12">
-              <div
-                class="
-                  bg-white
-                  border border-gray-300
-                  flex
-                  items-center
-                  mb-6
-                  overflow-hidden
-                  p-1
-                  rounded
-                "
-              >
+              <div class="flex">
                 <input
                   class="
-                    appearance-none
-                    border-0
+                    border border-gray-300
                     flex-1
                     outline-0
                     focus:outline-0
                     px-5
+                    mx-2
                     py-2
                     text-gray-600
-                    w-full
+                    rounded
                   "
                   placeholder="Enter email..."
                   type="email"
@@ -86,11 +75,11 @@ definePageMeta({
                     bg-blue-600
                     hover:bg-blue-700
                     inline-block
-                    px-8
+                    px-5
                     py-2
+                    mx-2
                     rounded
-                    text-center text-white
-                    uppercase
+                    text-white
                   "
                 >
                   Notify me
