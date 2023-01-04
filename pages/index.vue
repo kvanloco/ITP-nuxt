@@ -20,15 +20,19 @@ const addNotifyEmail = async (email) => {
 };
 
 const emailNotify = ref('');
+const validRegex =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 /*
  * *********  On Notify me Button
  */
 const onNotifyMeBtn = async () => {
-  if (emailNotify.value.length > 1) {
+  if (emailNotify.value.match(validRegex)) {
     addNotifyEmail(emailNotify.value);
-    emailNotify.value = '';
     openToast();
+    emailNotify.value = '';
+  } else {
+    console.log('email not valid');
   }
 };
 
