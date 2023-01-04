@@ -1,8 +1,50 @@
-<script>
+<script setup>
 // This will work in both `<script setup>` and `<script>`
 definePageMeta({
   layout: 'landing',
 });
+
+const config = useRuntimeConfig();
+const supabase = useSupabaseClient();
+
+const addNotifyEmail = async (email) => {
+  const { data, error } = await supabase
+    .from('subscribers')
+    .insert([{ email: email }]);
+  if (data) {
+    console.log(data);
+  }
+  if (error) {
+    console.log(error);
+  }
+};
+
+const emailNotify = ref('');
+
+/*
+ * *********  On Notify me Button
+ */
+const onNotifyMeBtn = async () => {
+  if (emailNotify.value.length > 1) {
+    addNotifyEmail(emailNotify.value);
+    emailNotify.value = '';
+    openToast();
+  }
+};
+
+/*
+ * *********  Toast
+ */
+const toastShow = ref(false);
+
+const openToast = () => {
+  toastShow.value = true;
+  const timeOut = setTimeout(() => (toastShow.value = false), 4000);
+};
+
+const closeToast = () => {
+  toastShow.value = false;
+};
 </script>
 
 <template>
@@ -68,8 +110,10 @@ definePageMeta({
                   placeholder="Enter email..."
                   type="email"
                   required
+                  v-model="emailNotify"
                 />
                 <button
+                  @click.prevent="onNotifyMeBtn"
                   type="submit"
                   class="
                     bg-blue-600
@@ -641,4 +685,9 @@ definePageMeta({
       </div>
     </section>
   </div>
+  <ToastListItem
+    v-show="toastShow"
+    :toastText="`${emailNotify} is signed up.`"
+    @close="closeToast"
+  />
 </template>

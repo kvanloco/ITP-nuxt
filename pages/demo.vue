@@ -68,13 +68,15 @@ const toastShow = ref(false);
 const openToast = () => {
   toastShow.value = true;
   const timeOut = setTimeout(() => (toastShow.value = false), 4000);
-  //clearTimeout(timeOut);
 };
 
 const closeToast = () => {
   toastShow.value = false;
 };
 
+/*
+ * *********  On Click Copy
+ */
 const onClickCopy = (value) => {
   copy(value);
   openToast();
