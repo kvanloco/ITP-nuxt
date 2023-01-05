@@ -140,6 +140,12 @@ const detailsVisible = ref(false);
     </div>
   </div>
   <!-- Naming fields section -->
+  <div>dqf</div>
+  <client-only placeholder="Loading...">
+    <NamingFieldList v-bind="namingFields.value" />
+    {{ namingFields }}
+  </client-only>
+
   <div class="justify-center flex-grow flex px-2 gap-2 py-5">
     <div v-for="(field, index) in namingFields" class="flex-auto">
       <!-- Template  Naming fields-->
