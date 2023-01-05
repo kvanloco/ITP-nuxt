@@ -29,10 +29,11 @@ const validRegex =
 const onNotifyMeBtn = async () => {
   if (emailNotify.value.match(validRegex)) {
     addNotifyEmail(emailNotify.value);
-    openToast(emailNotify.value);
+    openToast(`${emailNotify.value} is signed up.`);
     emailNotify.value = '';
   } else {
     console.log('email not valid');
+    openToast('Please add a valid emailadress');
   }
 };
 
@@ -135,7 +136,7 @@ const closeToast = () => {
                     text-white
                   "
                 >
-                  Notify me {{ toastText }}
+                  Notify me
                 </button>
               </div>
             </form>
@@ -696,7 +697,7 @@ const closeToast = () => {
   </div>
   <ToastListItem
     v-show="toastShow"
-    :toastText="`${toastText} is signed up`"
+    :toastText="toastText"
     @close="closeToast"
   />
 </template>
