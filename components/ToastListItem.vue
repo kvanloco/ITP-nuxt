@@ -3,9 +3,6 @@ const props = defineProps({
   toastText: String,
 });
 
-console.log(props.toastText);
-const localToastText = unref(props.toastText);
-console.log(localToastText);
 const emit = defineEmits(['close']);
 
 const closeToast = () => {
@@ -62,7 +59,7 @@ const closeToast = () => {
       </svg>
       <span class="sr-only">Fire icon</span>
     </div>
-    <div class="ml-3 text-sm font-normal">{{ localToastText }}</div>
+    <div class="ml-3 text-sm font-normal">{{ toastText }}</div>
     <button
       @click="closeToast"
       type="button"

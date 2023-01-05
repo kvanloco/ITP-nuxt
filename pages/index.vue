@@ -45,7 +45,10 @@ const toastText = ref('');
 const openToast = (text) => {
   toastText.value = text;
   toastShow.value = true;
-  const timeOut = setTimeout(() => (toastShow.value = false), 4000);
+  const timeOut = setTimeout(() => {
+    toastShow.value = false;
+    toastText.value = '';
+  }, 4000);
 };
 
 const closeToast = () => {
@@ -119,7 +122,7 @@ const closeToast = () => {
                   v-model="emailNotify"
                 />
                 <button
-                  @click.prevent="onNotifyMeBtn"
+                  @click.prevent="onNotifyMeBtn()"
                   type="submit"
                   class="
                     bg-blue-600
@@ -132,7 +135,7 @@ const closeToast = () => {
                     text-white
                   "
                 >
-                  Notify me
+                  Notify me {{ toastText }}
                 </button>
               </div>
             </form>
