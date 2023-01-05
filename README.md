@@ -1,3 +1,3 @@
-# ITP-nuxt
+# Naming tool
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/nuxt-starter-69ppmk)
+A online tool to create structured document names and get yourself and your team on the same page!
