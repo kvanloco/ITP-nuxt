@@ -1,8 +1,15 @@
 <script setup>
 const config = useRuntimeConfig();
 const supabase = useSupabaseClient();
+const { text, copy, copied, isSupported } = useClipboard();
 
-const { data: templatess } = await useAsyncData('tasks', async () => {
+/*
+ *
+ *  Get templates from database
+ *
+ */
+
+const { data: templates } = await useAsyncData('tasks', async () => {
   const { data } = await supabase.from('templates').select();
   return data;
 });
@@ -14,20 +21,23 @@ const {
   error,
 } = await useFetch('/api/fields');
 
-const {
-  data: templatesData,
-  pending: templatesPending,
-  refresh: templatesRefresh,
-  error: templatesError,
-} = await useFetch('/api/templates');
+/*
+ *
+ *  Global settings
+ *
+ */
 
-const maxLength = 20;
+const maxLength = 50;
 const hyphen = '_';
-const outputArray = ref([]);
-const errorMessage = ref('');
-const errorFromChild = ref('');
 
-const { text, copy, copied, isSupported } = useClipboard();
+const errorMessage = ref('');
+
+/*
+ *
+ *  Resultstring
+ *
+ */
+const outputArray = ref([]);
 
 const resultString = computed(() => {
   // if all fields are empty, return empty string
@@ -42,7 +52,11 @@ const resultString = computed(() => {
   });
 });
 
-// Input validation
+/*
+ *
+ *  Input validation
+ *
+ */
 watch(resultString, (newOutput, prevOutput) => {
   errorMessage.value = '';
   // check max length
@@ -50,18 +64,26 @@ watch(resultString, (newOutput, prevOutput) => {
     errorMessage.value = `You need max ${maxLength} characters, currently you have ${resultString.value.length} characters`;
   }
 });
-// from child field components
+/*
+ *
+ *  From child field components
+ *
+ */
+const errorFromChild = ref('');
+
 const onOutput = (n, index, hasErrors) => {
   //console.log('Output at parent level:  ' + n + ' - ' + index);
   outputArray.value.splice(index, 1, n);
   errorFromChild.value = '';
   if (hasErrors) {
-    errorFromChild.value = 'There are 1 or more errors';
+    errorFromChild.value = 'There are 1 or more field errors';
   }
 };
 
 /*
- * *********  Toast
+ *
+ *  Toast controls
+ *
  */
 const toastShow = ref(false);
 
@@ -75,7 +97,9 @@ const closeToast = () => {
 };
 
 /*
- * *********  On Click Copy
+ *
+ *  Copy to clipboard controls
+ *
  */
 const onClickCopy = (value) => {
   copy(value);
@@ -86,8 +110,24 @@ const onClickCopy = (value) => {
 <template>
   <!-- Page title and subtitle section -->
   <div class="pb-3">
-    <h6 class="font-semibold text-xl">your template name</h6>
-    <p class="">Lorem ipsum dolar sit</p>
+    <h6 class="font-semibold text-xl">Project documents - baseline docs</h6>
+    <div class="">
+      <p>
+        Creates document names with a project identifier, a description, a
+        sequence number and a revision number.
+      </p>
+      <p>
+        This template can be use to create document names for baseline
+        documents.
+      </p>
+
+      <p>Template settings:</p>
+
+      <ul class="list-disc list-inside">
+        <li>max length: 50 characters</li>
+        <li>hyphen: _</li>
+      </ul>
+    </div>
   </div>
   <!-- Naming fields section -->
   <div class="justify-center flex-grow flex px-2 gap-2 py-5">
@@ -125,8 +165,8 @@ const onClickCopy = (value) => {
           </div>
         </span>
       </div>
-      <div class="text-red-300 text-center">{{ errorMessage }}</div>
-      <div class="text-red-300 text-center">{{ errorFromChild }}</div>
+      <div class="text-red-400 text-center">{{ errorMessage }}</div>
+      <div class="text-red-400 text-center">{{ errorFromChild }}</div>
     </div>
   </div>
 
@@ -222,7 +262,7 @@ const onClickCopy = (value) => {
   <div class="grid lg:grid-cols-2 2xl:grid-cols-3 gap-2 py-5">
     <!-- Template List Item-->
     <TemplateListItem
-      v-for="(template, index) in templatess"
+      v-for="(template, index) in templates"
       v-bind="template"
       :index="index"
       class=""
@@ -231,7 +271,7 @@ const onClickCopy = (value) => {
 
   <ToastListItem
     v-show="toastShow"
-    :toastText="`${resultString} is copied to clipboard`"
+    :toastText="`${resultString} is copied  to  clipboard`"
     @close="closeToast"
   />
 </template>

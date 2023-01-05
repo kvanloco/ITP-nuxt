@@ -21,7 +21,7 @@ const closeToast = () => {
       items-center
       p-4
       w-full
-      max-w-xs
+      max-w-sm
       text-gray-500
       bg-blue-100
       rounded-lg
@@ -44,9 +44,9 @@ const closeToast = () => {
         dark:bg-blue-800 dark:text-blue-200
       "
     >
-      <img src="/logo.svg" class="h-6 mr-3 sm:h-9" alt="Logo" />
+      <img src="/logo.svg" class="h-5 w-5 mr-3 sm:h-9" alt="Logo" />
     </div>
-    <div class="ml-3 text-sm font-normal break-words">
+    <div class="ml-3 text-sm font-normal break-all">
       {{ toastText }}
     </div>
     <button

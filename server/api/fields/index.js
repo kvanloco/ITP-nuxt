@@ -6,9 +6,9 @@ export default defineEventHandler(async () => {
 
   const namingFields = [
     {
-      title: 'Fieldname 1',
-      subTitle: 'subtitle',
-      initialInputValue: '123',
+      title: 'Project identifier',
+      subTitle: 'Add a project identifier',
+      initialInputValue: '',
       slug: 'projectref',
       type: 'text',
       // validation via watch
@@ -17,21 +17,22 @@ export default defineEventHandler(async () => {
       maxlength: 10,
       unique: false,
       // format output
-      prefix: 'PMO',
+      prefix: 'P',
       postfix: '',
       space: '-',
       capitalize: true,
     },
     {
-      title: 'Fieldname 2',
-      subTitle: 'subtitle',
+      title: 'Description',
+      subTitle:
+        'Give a descriptive sentence of the content of the document. Spaces will be converted to -.',
       initialInputValue: '',
       slug: 'projectref',
       type: 'text',
       // validation via watch
       required: true,
       minlength: 5,
-      maxlength: 10,
+      maxlength: 20,
       unique: false,
       // format output
       prefix: '',
@@ -40,9 +41,10 @@ export default defineEventHandler(async () => {
       capitalize: false,
     },
     {
-      title: 'Fieldname 2',
-      subTitle: 'subtitle',
-      initialInputValue: '',
+      title: 'Sequence number',
+      subTitle:
+        'Set the sequence number. 000 for the main document. Subsequent numbers for subsequent documents',
+      initialInputValue: '000',
       slug: 'projectref',
       type: 'number',
       // validation via watch
@@ -57,9 +59,9 @@ export default defineEventHandler(async () => {
       capitalize: false,
     },
     {
-      title: 'Fieldname 2',
-      subTitle: 'subtitle',
-      initialInputValue: '',
+      title: 'Revision number',
+      subTitle: 'Set the revision number. 00 for the first revision.',
+      initialInputValue: '00',
       slug: 'projectref',
       type: 'number',
       // validation via watch

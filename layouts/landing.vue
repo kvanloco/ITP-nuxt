@@ -1,6 +1,8 @@
 <template>
   <div>
     <AppHeader class="mt-1" />
-    <slot />
+    <div class="text-sm">
+      <slot />
+    </div>
   </div>
 </template>

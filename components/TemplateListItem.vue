@@ -29,10 +29,10 @@ const toggle = (index) => {
 
 <template>
   <div class="border">
-    <div class="flex items-center justify-between p-2 xl:items-start">
-      <div class="flex-col flex items-center xl:items-start">
-        <h3 class="text-3xl font-semibold xl:text-[20px]">
-          {{ props.title }} - {{ props.uuid }}
+    <div class="flex gap-2 justify-between p-2 items-start">
+      <div class="flex-col flex xl:items-start">
+        <h3 class="text-2xl font-semibold xl:text-[20px]">
+          {{ props.title }}
         </h3>
         <div class="flex gap-x-2">
           <p class="text-blue-500">{{ props.categorie }}</p>
@@ -41,7 +41,6 @@ const toggle = (index) => {
         </div>
       </div>
       <div class="max-w-[250px] flex items-center gap-2 xl:items-start">
-        <p class="text-xs">Lorem ipsum dolar sit qdfqsdfdsfqsdf sqdfqsdf</p>
         <button class="min-w-[130px] p-1 max-w-[250px] bg-blue-500 text-white">
           Use this template
         </button>
@@ -49,8 +48,10 @@ const toggle = (index) => {
     </div>
     <div class="p-2">
       <p class="text-xl">Description</p>
-      <p class="">{{ props.description }}ddd</p>
+      <!-- <p class="">{{ props.description }}</p> -->
+      <div v-html="props.description"></div>
     </div>
+    <!--   
     <div class="p-2">
       <p class="text-xl">Examples</p>
       <ul class="list-disc list-inside">
@@ -59,6 +60,7 @@ const toggle = (index) => {
         <li class="flex items-center gap-x-3">001_Lorem-ipsum_001_v45</li>
       </ul>
     </div>
+    -->
     <div class="flex items-center gap-2 p-2">
       <span class="w-10 h-10">
         <div class="">

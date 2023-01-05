@@ -114,18 +114,17 @@ watch(output, (newOutput, prevOutput) => {
       flex flex-col
     "
   >
-    <div class="flex gap-x-[2px] flex-col min-h-[40px]">
+    <div class="flex gap-x-[2px] flex-col mb-1">
       <p class="">{{ title }}</p>
-      <span class="text-xs text-blue-300">{{ subTitle }}</span>
     </div>
     <input
       class="p-1 border border-gray-200 text-sm"
       v-model="input"
       :type="props.type"
-      :maxlength="props.maxlength"
     />
-    <div class="flex gap-x-[2px] flex-col min-h-[25px]">
-      <span class="text-xs text-red-300">{{ errorMessage }}</span>
+    <div class="flex gap-x-[2px] flex-col min-h-[50px]">
+      <p class="text-xs text-blue-400">{{ subTitle }}</p>
+      <span class="text-xs text-red-400">{{ errorMessage }}</span>
     </div>
   </div>
 </template>

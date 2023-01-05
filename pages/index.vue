@@ -65,7 +65,7 @@ const closeToast = () => {
         <div class="flex flex-wrap -mx-4">
           <div class="mx-auto px-4 text-center w-full lg:w-8/12 xl:w-6/12">
             <h6 class="text-base text-blue-500">Coming soon</h6>
-            <h1 class="font-normal mb-4 text-6xl text-gray-900">Naming tool</h1>
+            <h1 class="font-normal mb-4 text-4xl text-gray-900">Naming tool</h1>
             <p class="mb-6 text-lg">
               Create structured document names and get yourself and your team on
               the same page!
@@ -402,7 +402,7 @@ const closeToast = () => {
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap -mx-4 items-center mb-4">
           <div class="mx-auto px-4 w-full lg:w-9/12">
-            <h2 class="font-normal mb-2 text-5xl text-gray-900">
+            <h2 class="font-normal mb-2 text-4xl text-gray-900">
               Enterprise ready performance &amp; control
             </h2>
             <p class="mb-4">
