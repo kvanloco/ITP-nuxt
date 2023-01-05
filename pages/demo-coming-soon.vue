@@ -5,5 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <ComingSoon />
+  <UiComingSoon />
 </template>

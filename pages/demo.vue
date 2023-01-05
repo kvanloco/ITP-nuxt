@@ -105,13 +105,23 @@ const onClickCopy = (value) => {
   copy(value);
   openToast();
 };
+
+const detailsVisible = ref(false);
 </script>
 
 <template>
   <!-- Page title and subtitle section -->
   <div class="pb-3">
-    <h6 class="font-semibold text-xl">Project documents - baseline docs</h6>
-    <div class="">
+    <h6 class="font-semibold text-xl">
+      Project documents - baseline docs
+      <button
+        @click="detailsVisible = !detailsVisible"
+        class="p-1 text-sm font-light text-blue-400"
+      >
+        {{ detailsVisible ? 'hide description' : 'show description' }}
+      </button>
+    </h6>
+    <div v-show="detailsVisible" class="">
       <p>
         Creates document names with a project identifier, a description, a
         sequence number and a revision number.
