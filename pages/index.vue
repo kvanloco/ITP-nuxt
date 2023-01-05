@@ -29,7 +29,7 @@ const validRegex =
 const onNotifyMeBtn = async () => {
   if (emailNotify.value.match(validRegex)) {
     addNotifyEmail(emailNotify.value);
-    openToast();
+    openToast(emailNotify.value);
     emailNotify.value = '';
   } else {
     console.log('email not valid');
@@ -40,8 +40,10 @@ const onNotifyMeBtn = async () => {
  * *********  Toast
  */
 const toastShow = ref(false);
+const toastText = ref('');
 
-const openToast = () => {
+const openToast = (text) => {
+  toastText.value = text;
   toastShow.value = true;
   const timeOut = setTimeout(() => (toastShow.value = false), 4000);
 };
@@ -691,7 +693,7 @@ const closeToast = () => {
   </div>
   <ToastListItem
     v-show="toastShow"
-    :toastText="`${emailNotify} is signed up.`"
+    :toastText="`${toastText} is signed up`"
     @close="closeToast"
   />
 </template>
