@@ -9,12 +9,12 @@
 const props = defineProps({
   resultsArray: {
     type: Array,
-    required: true,
   },
   errorsFromFields: {
     type: String,
   },
 });
+const emit = defineEmits(['clickCopy', 'resultString']);
 /*
  *
  *  Global settings
@@ -33,16 +33,15 @@ const errorMessage = ref('');
 
 const resultString = computed(() => {
   // if all fields are empty, return empty string
-  console.log(props.resultsArray);
-  /*
   if (props.resultsArray.length < 1) {
     return '';
   }
-  */
+
   return props.resultsArray.reduce((acc, curr, index, arr) => {
     if (index == 0 || index == arr.length || curr == '') {
       return acc + curr;
     }
+
     return acc + hyphen + curr;
   });
 });
@@ -54,6 +53,7 @@ const resultString = computed(() => {
  */
 watch(resultString, (newOutput, prevOutput) => {
   errorMessage.value = '';
+  emit('resultString', resultString);
   // check max length
   if (resultString.value.length > maxLength) {
     errorMessage.value = `You need max ${maxLength} characters, currently you have ${resultString.value.length} characters`;
@@ -72,7 +72,7 @@ watch(resultString, (newOutput, prevOutput) => {
         >
           <div style="font-size: inherit; color: inherit; padding: 2px">
             <svg
-              @click="onClickCopy(resultString)"
+              @click="$emit('clickCopy', resultString)"
               stroke="currentColor"
               fill="currentColor"
               stroke-width="0"
