@@ -28,17 +28,29 @@ const {
  *
  */
 
-const maxLength = 50;
+const maxLength = 60;
 const hyphen = '_';
+/*
+ *
+ *  From child fieldList component
+ *
+ */
+const errorFromChild = ref('');
+const outputArray = ref([]);
 
-const errorMessage = ref('');
+const onOutputArray = (value) => {
+  outputArray.value = value;
+};
+const onErrorString = (value) => {
+  errorFromChild.value = value;
+};
 
 /*
  *
  *  Resultstring
  *
  */
-const outputArray = ref([]);
+const errorMessage = ref('');
 
 const resultString = computed(() => {
   // if all fields are empty, return empty string
@@ -55,7 +67,7 @@ const resultString = computed(() => {
 
 /*
  *
- *  Input validation
+ *  ResultString global settings validation
  *
  */
 watch(resultString, (newOutput, prevOutput) => {
@@ -65,21 +77,6 @@ watch(resultString, (newOutput, prevOutput) => {
     errorMessage.value = `You need max ${maxLength} characters, currently you have ${resultString.value.length} characters`;
   }
 });
-/*
- *
- *  From child field components
- *
- */
-const errorFromChild = ref('');
-
-const onOutputArray = (value) => {
-  console.log(value);
-  outputArray.value = value;
-};
-const onErrorString = (value) => {
-  console.log(value);
-  errorFromChild.value = value;
-};
 
 /*
  *
