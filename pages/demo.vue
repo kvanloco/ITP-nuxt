@@ -41,7 +41,6 @@ const onResultString = (value) => {
   //console.log("onResultString " + value.value)
 }
 
-
 /*
  *
  *  Toast controls
@@ -104,24 +103,24 @@ const detailsVisible = ref(false);
   </div>
   <!-- Naming fields section -->
 
-  <client-only placeholder="Loading...">
+
     <NamingFieldList
       :namingFields="namingFields"
       @outputArray="onOutputArray"
       @errorString="onErrorString"
     />
-  </client-only>
+
 
   <!-- Template results section-->
 
-  <client-only placeholder="Loading...">
+
     <NamingFieldResult
       :resultsArray="outputArray"
       :errorsFromFields="errorFromChild"
       @resultString="onResultString"
       @clickCopy="onClickCopy"
     />
-  </client-only>
+
 
   <!-- Template  List created templates section-->
   <div class="flex px-2 gap-2 py-1">
