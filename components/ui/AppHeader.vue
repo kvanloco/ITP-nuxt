@@ -25,6 +25,7 @@ const menuLinks = [
   },
   */
 ];
+const menuOpen = ref(false);
 </script>
 
 <template>
@@ -57,7 +58,8 @@ const menuLinks = [
           >
         </a>
         <button
-          data-collapse-toggle="navbar-default"
+          @click="menuOpen = !menuOpen"
+          data-toggle="navbar-default"
           type="button"
           class="
             inline-flex
@@ -89,7 +91,11 @@ const menuLinks = [
             ></path>
           </svg>
         </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <div
+          :class="{ hidden: !menuOpen }"
+          class="hiddden w-full md:block md:w-auto"
+          id="navbar-default"
+        >
           <ul
             class="
               flex flex-col
