@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   build: {
     transpile: [],
   },
+  plugins: [{ src: '~/plugins/vercel.js', mode: 'client' }],
   runtimeConfig: {
     public: {
       test: '122',

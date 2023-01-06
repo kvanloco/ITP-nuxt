@@ -14,6 +14,7 @@ const { data: templates } = await useAsyncData('tasks', async () => {
   return data;
 });
 
+// passed down to NamingFieldList component
 const {
   data: namingFields,
   pending,
@@ -27,17 +28,29 @@ const {
  *
  */
 
-const maxLength = 50;
+const maxLength = 60;
 const hyphen = '_';
+/*
+ *
+ *  From child fieldList component
+ *
+ */
+const errorFromChild = ref('');
+const outputArray = ref([]);
 
-const errorMessage = ref('');
+const onOutputArray = (value) => {
+  outputArray.value = value;
+};
+const onErrorString = (value) => {
+  errorFromChild.value = value;
+};
 
 /*
  *
  *  Resultstring
  *
  */
-const outputArray = ref([]);
+const errorMessage = ref('');
 
 const resultString = computed(() => {
   // if all fields are empty, return empty string
@@ -54,7 +67,7 @@ const resultString = computed(() => {
 
 /*
  *
- *  Input validation
+ *  ResultString global settings validation
  *
  */
 watch(resultString, (newOutput, prevOutput) => {
@@ -64,21 +77,6 @@ watch(resultString, (newOutput, prevOutput) => {
     errorMessage.value = `You need max ${maxLength} characters, currently you have ${resultString.value.length} characters`;
   }
 });
-/*
- *
- *  From child field components
- *
- */
-const errorFromChild = ref('');
-
-const onOutput = (n, index, hasErrors) => {
-  //console.log('Output at parent level:  ' + n + ' - ' + index);
-  outputArray.value.splice(index, 1, n);
-  errorFromChild.value = '';
-  if (hasErrors) {
-    errorFromChild.value = 'There are 1 or more field errors';
-  }
-};
 
 /*
  *
@@ -140,14 +138,15 @@ const detailsVisible = ref(false);
     </div>
   </div>
   <!-- Naming fields section -->
-  <div class="justify-center flex-grow flex px-2 gap-2 py-5">
-    <div v-for="(field, index) in namingFields" class="flex-auto">
-      <!-- Template  Naming fields-->
-      <client-only placeholder="Loading...">
-        <NamingField v-bind="field" :index="index" @output="onOutput" />
-      </client-only>
-    </div>
-  </div>
+
+  <client-only placeholder="Loading...">
+    <NamingFieldList
+      :naming-fields="namingFields"
+      @outputArray="onOutputArray"
+      @errorString="onErrorString"
+    />
+  </client-only>
+
   <!-- Template results section-->
   <div class="flex px-2 gap-2 justify-center py-5">
     <!-- Template  result string-->

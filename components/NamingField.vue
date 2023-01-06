@@ -1,8 +1,4 @@
 <script setup>
-/*
-TODO
-- emit output
-*/
 
 const props = defineProps({
   title: String,
