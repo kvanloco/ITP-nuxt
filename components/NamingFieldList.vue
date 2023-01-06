@@ -1,25 +1,29 @@
 <script setup>
 const props = defineProps({
   namingFields: {
-    type: [],
+    type: Array,
     required: true,
   },
 });
+const emit = defineEmits(['outputArray', 'errorString']);
 
-//const emit = defineEmits(['output']);
+const outputArray = ref([]);
+const errorFromChild = ref('');
 
-console.log(props.namingFields);
-// const {
-//   data: namingFields,
-//   pending,
-//   refresh,
-//   error,
-// } = await useFetch('/api/fields');
+const onOutput = (n, index, hasErrors) => {
+  //console.log('Output at parent level:  ' + n + ' - ' + index);
+  outputArray.value.splice(index, 1, n);
+  errorFromChild.value = '';
+  if (hasErrors) {
+    errorFromChild.value = 'There are 1 or more field errors';
+  }
+  emit('outputArray', outputArray.value);
+  emit('errorString', errorFromChild.value);
+};
 </script>
 
 <template>
   <div class="justify-center flex-grow flex px-2 gap-2 py-5">
-    {{ namingFields }}
     <div v-for="(field, index) in props.namingFields" class="flex-auto">
       <!-- Template  Naming fields-->
       <client-only placeholder="Loading...">

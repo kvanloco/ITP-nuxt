@@ -32,7 +32,7 @@ export default defineEventHandler(async () => {
       // validation via watch
       required: true,
       minlength: 5,
-      maxlength: 20,
+      maxlength: 30,
       unique: false,
       // format output
       prefix: '',
