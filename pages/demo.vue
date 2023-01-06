@@ -24,14 +24,6 @@ const {
 
 /*
  *
- *  Global settings
- *
- */
-
-const maxLength = 60;
-const hyphen = '_';
-/*
- *
  *  From child fieldList component
  *
  */
@@ -45,38 +37,8 @@ const onErrorString = (value) => {
   errorFromChild.value = value;
 };
 
-/*
- *
- *  Resultstring
- *
- */
-const errorMessage = ref('');
-
-const resultString = computed(() => {
-  // if all fields are empty, return empty string
-  if (outputArray.value.length < 1) {
-    return '';
-  }
-  return outputArray.value.reduce((acc, curr, index, arr) => {
-    if (index == 0 || index == arr.length || curr == '') {
-      return acc + curr;
-    }
-    return acc + hyphen + curr;
-  });
-});
-
-/*
- *
- *  ResultString global settings validation
- *
- */
-watch(resultString, (newOutput, prevOutput) => {
-  errorMessage.value = '';
-  // check max length
-  if (resultString.value.length > maxLength) {
-    errorMessage.value = `You need max ${maxLength} characters, currently you have ${resultString.value.length} characters`;
-  }
-});
+console.log(errorFromChild.value);
+console.log(outputArray.value);
 
 /*
  *
@@ -148,6 +110,11 @@ const detailsVisible = ref(false);
   </client-only>
 
   <!-- Template results section-->
+
+  <NamingFieldResult
+    :result-array="outputArray"
+    :errors-from-fields="errorFromChild"
+  />
   <div class="flex px-2 gap-2 justify-center py-5">
     <!-- Template  result string-->
     <div class="flex flex-col gap-3 my-1 p-4 px-64 border-primary border-2">
