@@ -57,7 +57,7 @@ const onClickCopy = () => {
   <!-- Page title and subtitle section -->
   <div class="pb-3">
     <h6 class="font-semibold text-xl">
-      Project documents - baseline docs {{ resultString }}
+      Project documents - baseline docs
       <button
         @click="detailsVisible = !detailsVisible"
         class="p-1 text-sm font-light text-blue-400"
