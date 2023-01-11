@@ -1,53 +1,18 @@
 <script setup>
-const config = useRuntimeConfig();
-const supabase = useSupabaseClient();
 const { text, copy, copied, isSupported } = useClipboard();
 
-/*
- *
- *  Get templates from database
- *
- */
-
+const supabase = useSupabaseClient();
 const { data: templates } = await useAsyncData('tasks', async () => {
   const { data } = await supabase.from('templates').select();
   return data;
 });
-
-// passed down to NamingFieldList component
-const {
-  data: namingFields,
-  pending,
-  refresh,
-  error,
-} = await useFetch('/api/fields');
-
-/*
- *
- *  From child fieldList component
- *
- */
-const errorFromChild = ref('');
-const outputArray = ref([]);
-const resultString = ref('');
-
-const onOutputArray = (value) => {
-  outputArray.value = value;
-};
-const onErrorString = (value) => {
-  errorFromChild.value = value;
-};
-const onResultString = (value) => {
-  //console.log("onResultString " + value.value)
-}
-
-
 /*
  *
  *  Toast controls
  *
  */
 const toastShow = ref(false);
+const toastText = ref('');
 
 const openToast = () => {
   toastShow.value = true;
@@ -64,64 +29,15 @@ const closeToast = () => {
  *
  */
 const onClickCopy = (value) => {
-  resultString.value = value
-  copy(value);
+  toastText.value = `${value.value} is copied  to  clipboard`;
+
+  copy(value.value);
   openToast();
 };
-
-const detailsVisible = ref(false);
 </script>
 
 <template>
-  <!-- Page title and subtitle section -->
-  <div class="pb-3">
-    <h6 class="font-semibold text-xl">
-      Project documents - baseline docs {{resultString}}
-      <button
-        @click="detailsVisible = !detailsVisible"
-        class="p-1 text-sm font-light text-blue-400"
-      >
-        {{ detailsVisible ? 'hide description' : 'show description' }}
-      </button>
-    </h6>
-    <div v-show="detailsVisible" class="">
-      <p>
-        Creates document names with a project identifier, a description, a
-        sequence number and a revision number.
-      </p>
-      <p>
-        This template can be use to create document names for baseline
-        documents.
-      </p>
-
-      <p>Template settings:</p>
-
-      <ul class="list-disc list-inside">
-        <li>max length: 50 characters</li>
-        <li>hyphen: _</li>
-      </ul>
-    </div>
-  </div>
-  <!-- Naming fields section -->
-
-  <client-only placeholder="Loading...">
-    <NamingFieldList
-      :namingFields="namingFields"
-      @outputArray="onOutputArray"
-      @errorString="onErrorString"
-    />
-  </client-only>
-
-  <!-- Template results section-->
-
-  <client-only placeholder="Loading...">
-    <NamingFieldResult
-      :resultsArray="outputArray"
-      :errorsFromFields="errorFromChild"
-      @resultString="onResultString"
-      @clickCopy="onClickCopy"
-    />
-  </client-only>
+  <NamingTool @clickCopy="onClickCopy" />
 
   <!-- Template  List created templates section-->
   <div class="flex px-2 gap-2 py-1">
@@ -224,7 +140,7 @@ const detailsVisible = ref(false);
 
   <ToastListItem
     v-show="toastShow"
-    :toastText="`${resultString} is copied  to  clipboard`"
+    :toastText="toastText"
     @close="closeToast"
   />
 </template>

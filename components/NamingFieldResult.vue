@@ -1,11 +1,4 @@
 <script setup>
-// Props
-// - ResultsArray
-// - ErrorsFromFields: String
-// - Global Settings
-// Emits
-// - ...
-//
 const props = defineProps({
   resultsArray: {
     type: Array,
@@ -20,28 +13,23 @@ const emit = defineEmits(['clickCopy', 'resultString']);
  *  Global settings
  *
  */
-
 const maxLength = 60;
 const hyphen = '_';
-
 /*
  *
  *  Resultstring
  *
  */
 const errorMessage = ref('');
-
 const resultString = computed(() => {
   // if all fields are empty, return empty string
   if (props.resultsArray.length < 1) {
     return '';
   }
-
   return props.resultsArray.reduce((acc, curr, index, arr) => {
     if (index == 0 || index == arr.length || curr == '') {
       return acc + curr;
     }
-
     return acc + hyphen + curr;
   });
 });
