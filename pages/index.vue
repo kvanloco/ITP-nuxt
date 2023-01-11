@@ -65,10 +65,12 @@ const closeToast = () => {
         <div class="flex flex-wrap -mx-4">
           <div class="mx-auto px-4 text-center w-full lg:w-8/12 xl:w-6/12">
             <h6 class="text-base text-blue-500">Coming soon</h6>
-            <h1 class="font-normal mb-4 text-4xl text-gray-900">Naming tool</h1>
+            <h1 class="font-normal mb-4 text-4xl text-gray-900">
+              Document Naming tool
+            </h1>
             <p class="mb-6 text-lg">
-              Create structured document names and get yourself and your team on
-              the same page!
+              Create structured document and file names and get yourself and
+              your team on the same page!
             </p>
             <NuxtLink
               to="demo"
