@@ -29,7 +29,7 @@ const validRegex =
 const onNotifyMeBtn = async () => {
   if (emailNotify.value.match(validRegex)) {
     addNotifyEmail(emailNotify.value);
-    openToast(`${emailNotify.value} is signed up.`);
+    openToast(`${emailNotify.value} is signed up!`);
     emailNotify.value = '';
   } else {
     console.log('email not valid');
